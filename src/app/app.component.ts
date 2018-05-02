@@ -9,6 +9,7 @@ import { LoginPage } from '../pages/login/login';
 import { CadastroPage } from '../pages/cadastro/cadastro';
 import { RegistroHabitosPage } from '../pages/registro-habitos/registro-habitos';
 import { DesafiosPage } from '../pages/desafios/desafios';
+import { CadastroPageModule } from '../pages/cadastro/cadastro.module';
 
 @Component({
   templateUrl: 'app.html'
@@ -16,7 +17,7 @@ import { DesafiosPage } from '../pages/desafios/desafios';
 export class MyApp {
   @ViewChild(Nav) nav: Nav;
 
-  rootPage: any = LoginPage;
+  rootPage: any = HomePage;
 
   pages: Array<{title: string, component: any}>;
 
