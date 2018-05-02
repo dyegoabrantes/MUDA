@@ -15,6 +15,8 @@ import { AppService } from './app.service';
 
 import { StatusBar } from '@ionic-native/status-bar';
 import { SplashScreen } from '@ionic-native/splash-screen';
+import { AuthService } from '../providers/auth-service/auth-service';
+import { UserService } from './services/app.service';
 import { HttpModule } from '@angular/http';
 
 
@@ -48,7 +50,9 @@ import { HttpModule } from '@angular/http';
     AppService,
     StatusBar,
     SplashScreen,
-    {provide: ErrorHandler, useClass: IonicErrorHandler}
+    {provide: ErrorHandler, useClass: IonicErrorHandler},
+    AuthService,
+    UserService,
   ]
 })
 export class AppModule {}
