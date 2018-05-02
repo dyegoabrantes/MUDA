@@ -3,6 +3,7 @@ import { FormBuilder, Validators, FormGroup } from '@angular/forms';
 import { AppService } from './../../app/app.service';
 import { Usuario } from './usuario.model';
 import { Storage } from '@ionic/storage';
+import { RegistroHabitosPage } from '../registro-habitos/registro-habitos'
 
 import { Component } from '@angular/core';
 /**
@@ -20,6 +21,7 @@ import { Component } from '@angular/core';
 export class CadastroPage {
   
   constructor(  public formBuilder: FormBuilder,
+                public navController: NavController,
                 public appService: AppService,
                 public storage: Storage ) {
         this.loginForm = this.formBuilder.group({
@@ -46,8 +48,8 @@ export class CadastroPage {
     this.messageNome = ""
     this.messageEmail = ""
     this.messagePassword = "" 
-    if(senha1.value == senha2.value ){
-      if (usuario_email1.value == usuario_email2.value){
+    if(usuario_email1.value == usuario_email2.value ){
+      if (senha1.value == senha2.value){
         if (!this.loginForm.valid) {
           if (!nome.valid){
             this.errorNome = true;
@@ -96,8 +98,7 @@ export class CadastroPage {
           this.storage.set('nome', nome.value);
           this.storage.set('email', usuario_email1.value);
           this.storage.set('senha', senha1.value);
-          let usuario: Usuario = new Usuario ( nome.value, usuario_email1.value, senha1.value, 0 , 0 , 0)
-          this.cadastrar(usuario)
+          this.navController.setRoot(RegistroHabitosPage)
         }
       }else{
         this.errorPassword = true;
