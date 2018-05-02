@@ -15,7 +15,59 @@
 
 </ion-header>
 
-
 <ion-content padding>
-
+  <form padding [formGroup]="loginForm" (submit)="validar()" novalidate>
+    <ion-list>
+        <ion-item>
+            <ion-label floating>Nome</ion-label>
+            <ion-input type="text" [(ngModel)] = "nome" 
+                formControlName="nome"
+                name="nome"
+                 type="text"
+                 clearInput clearOnEdit="false"
+           ></ion-input>
+        </ion-item>
+        <h6 *ngIf="errorEmail" class="error"> {{messageNome}}</h6>
+      <ion-item>
+        <ion-label floating>Email</ion-label>
+        <ion-input type="text" [(ngModel)] = "usuario_email1" 
+        formControlName="usuario_email1"
+        name="usuario_email1"
+        type="text"
+        clearInput clearOnEdit="false"
+        ></ion-input>
+      </ion-item>
+      <h6 *ngIf="errorEmail" class="error"> {{messageEmail}}</h6>
+      <ion-item>
+        <ion-label floating>Confirmar Email</ion-label>
+        <ion-input type="text"  [(ngModel)] = "usuario_email2" 
+        formControlName="usuario_email2"
+        name="usuario_email2"
+        type="text"
+        clearInput clearOnEdit="false"
+        ></ion-input>
+      </ion-item>
+      <h6 *ngIf="errorEmail" class="error"> {{messageEmail}}</h6>
+      <ion-item>
+        <ion-label floating>Senha</ion-label>
+        <ion-input type="password" [(ngModel)] = "senha1" 
+          formControlName="senha1"
+          name="senha1"
+          type="password"
+          clearInput clearOnEdit="false"
+        ></ion-input>
+      </ion-item>
+      <h6 *ngIf="errorPassword" class="error"> {{messagePassword}}</h6>
+      <ion-item>
+        <ion-label floating>Confirmar Senha</ion-label>
+        <ion-input type="password" [(ngModel)] = "senha2" 
+          formControlName="senha2"
+          name="senha2"
+          type="password"
+          clearInput clearOnEdit="false"
+        ></ion-input>
+      </ion-item>
+    </ion-list>
+    <button ion-button block outline >Confirmar</button>
+  </form>
 </ion-content>
