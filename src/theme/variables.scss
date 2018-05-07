@@ -49,6 +49,9 @@ $colors: (
 // iOS only Sass variables can go here
 
 
+$text-input-ios-highlight-color: color($colors, azulHeader);
+$text-input-ios-highlight-color-valid: color($colors, secondary);
+$text-input-ios-highlight-color-invalid: color($colors, vermelho);
 
 
 // App Material Design Variables
@@ -56,6 +59,10 @@ $colors: (
 // Material Design only Sass variables can go here
 
 
+$text-input-md-highlight-color: color($colors, azulHeader);
+$text-input-md-highlight-color-valid: color($colors, secondary);
+$text-input-md-highlight-color-invalid: color($colors, vermelho);
+$text-input-md-input-clear-icon-color: color($colors, dark);
 
 
 // App Windows Variables
@@ -63,6 +70,10 @@ $colors: (
 // Windows only Sass variables can go here
 
 
+$text-input-wp-highlight-color: color($colors, azulHeader);
+$text-input-wp-highlight-color-valid: color($colors, secondary);
+$text-input-wp-highlight-color-invalid: color($colors, vermelho);
+$text-input-wp-input-clear-icon-color: color($colors, dark);
 
 
 // App Theme
@@ -88,3 +99,5 @@ $colors: (
 
 @import "roboto";
 @import "noto-sans";
+@import "../assets/fonts/montserrat";
+@import "../assets/fonts/nunito";
