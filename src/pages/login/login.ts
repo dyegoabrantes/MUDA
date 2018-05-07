@@ -1,7 +1,7 @@
 import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams, LoadingController, AlertController, Loading, } from 'ionic-angular';
 import { AuthService } from './../../providers/auth-service/auth-service';
-
+import { DesafioComponent } from './../../components/desafio/desafio'
 
 /**
  * Generated class for the LoginPage page.
@@ -22,8 +22,13 @@ export class LoginPage {
   registerCredentials = { email: '', password: '' };
 
 
-  constructor(public navCtrl: NavController, public navParams: NavParams, private auth: AuthService, private alertCtrl: AlertController, private loadingCtrl: LoadingController) {}
-  
+  constructor(public navCtrl: NavController,
+              public navParams: NavParams,
+              private auth: AuthService,
+              private alertCtrl: AlertController,
+              private loadingCtrl: LoadingController,
+              ) {}
+              desafio: DesafioComponent;
   // public createAccount() {
   //   this.navCtrl.push('RegisterPage');
   // }
