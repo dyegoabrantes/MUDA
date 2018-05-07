@@ -41,8 +41,6 @@ export class CadastroPage {
   errorEmail = false;
   errorPassword = false;
   
-
-
   validar() {
     let { nome, usuario_email1, usuario_email2, senha1, senha2 } = this.loginForm.controls;
     this.messageNome = ""
@@ -117,7 +115,7 @@ export class CadastroPage {
         (error) => console.log(error));
   }
   ionViewDidLoad() {
-    
+    this.storage.clear();
   }
 }
 
