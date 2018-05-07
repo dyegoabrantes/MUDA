@@ -22,7 +22,7 @@ export class DesafioService{
             "Energia",
             8,
             1,
-            "pendente"),
+            "notyet"),
         new Desafio ( 
             3,
             "Bye Bye Standby!",
@@ -30,7 +30,7 @@ export class DesafioService{
             "Energia",
             8,
             1,
-            "pendente"),
+            "notyet"),
         new Desafio ( 
             4,
             "Só polui",
@@ -38,7 +38,7 @@ export class DesafioService{
             "Energia",
             20,
             5,
-            "pendente",
+            "notyet",
             '-4.979414',
             '-39.0564111'),
         new Desafio ( 
@@ -48,7 +48,7 @@ export class DesafioService{
             "Energia",
             15,
             5,
-            "pendente"),
+            "notyet"),
         new Desafio ( 
             6,
             "Cada tipo no seu saco",
@@ -56,7 +56,7 @@ export class DesafioService{
             "Residuos",
             12,
             7,
-            "pendente"),
+            "notyet"),
         new Desafio ( 
             7,
             "Pouca água",
@@ -64,6 +64,6 @@ export class DesafioService{
             "Água",
             8,
             1,
-            "pendente")
+            "notyet")
     ];
 }
