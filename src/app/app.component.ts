@@ -9,6 +9,7 @@ import { LoginPage } from '../pages/login/login';
 import { CadastroPage } from '../pages/cadastro/cadastro';
 import { RegistroHabitosPage } from '../pages/registro-habitos/registro-habitos';
 import { DesafiosPage } from '../pages/desafios/desafios';
+import { CadastroPageModule } from '../pages/cadastro/cadastro.module';
 
 @Component({
   templateUrl: 'app.html'
