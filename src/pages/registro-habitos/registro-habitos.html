@@ -12,7 +12,20 @@
 
 </ion-header>
 
-
-<ion-content padding>
-
+<ion-content  padding>
+    <ion-card>
+        <ion-card-content>
+            Por favor, selecionar hábitos que você não costuma praticar
+        </ion-card-content>
+      </ion-card>
+      <ion-card *ngFor="let habito of habitos">
+          <ion-card-header >
+              {{ habito.titulo }}
+          </ion-card-header>
+          <ion-card-content>
+              {{ habito.descricao }}
+              <ion-checkbox [(ngModel)]="habito.status" (click)=statusHabito(habito)> </ion-checkbox>
+          </ion-card-content>
+        </ion-card>
+    <button ion-button block outline (click)="cadastrar()" (click)="inserirUsuario()">Confirmar</button>
 </ion-content>

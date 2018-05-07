@@ -1,3 +1,4 @@
+import { LoginPage } from './../login/login';
 import { IonicPage, NavController, NavParams } from 'ionic-angular';
 import { FormBuilder, Validators, FormGroup } from '@angular/forms';
 import { AppService } from './../../app/app.service';
@@ -41,8 +42,6 @@ export class CadastroPage {
   errorEmail = false;
   errorPassword = false;
   
-
-
   validar() {
     let { nome, usuario_email1, usuario_email2, senha1, senha2 } = this.loginForm.controls;
     this.messageNome = ""
@@ -116,8 +115,11 @@ export class CadastroPage {
       },
         (error) => console.log(error));
   }
+  voltar(){
+    this.navController.setRoot(LoginPage);
+  }
   ionViewDidLoad() {
-    
+    this.storage.clear();
   }
 }
 
