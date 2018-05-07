@@ -1,3 +1,4 @@
+import { LoginPage } from './../login/login';
 import { IonicPage, NavController, NavParams } from 'ionic-angular';
 import { FormBuilder, Validators, FormGroup } from '@angular/forms';
 import { AppService } from './../../app/app.service';
@@ -113,6 +114,9 @@ export class CadastroPage {
       .subscribe((data) => {
       },
         (error) => console.log(error));
+  }
+  voltar(){
+    this.navController.setRoot(LoginPage);
   }
   ionViewDidLoad() {
     this.storage.clear();

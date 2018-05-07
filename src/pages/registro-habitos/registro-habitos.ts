@@ -1,3 +1,4 @@
+import { HomePage } from './../home/home';
 import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams } from 'ionic-angular';
 import { Storage } from '@ionic/storage';
@@ -60,6 +61,7 @@ export class RegistroHabitosPage {
   }
 
   inserirUsuario(){
+    this.navCtrl.setRoot(HomePage);
     this.appService.cadastrarUsuario(this.usuario)
     .subscribe((data) => {
     },
