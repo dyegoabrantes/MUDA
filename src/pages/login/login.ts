@@ -1,3 +1,4 @@
+import { CadastroPage } from './../cadastro/cadastro';
 import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams, LoadingController, AlertController, Loading, } from 'ionic-angular';
 import { AuthService } from './../../providers/auth-service/auth-service';
@@ -66,6 +67,9 @@ export class LoginPage {
     alert.present();
   }
 
+  createAccount(){
+    this.navCtrl.setRoot(CadastroPage);
+  }
 
   ionViewDidLoad() {
     console.log('load')
