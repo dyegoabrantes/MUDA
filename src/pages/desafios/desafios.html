@@ -13,9 +13,27 @@
 <ion-content padding>
 
   <ion-list>
-    <ion-item *ngFor="let desafio of desafios">
+    <ion-item *ngFor="let desafio of desafiosPendentes">
       <ion-thumbnail item-start>
-        <img src="img/thumbnail-totoro.png">
+        <img src="{{desafio.titulo}}.png">
+      </ion-thumbnail>
+      <h2>{{desafio.titulo}}</h2>
+      <h3>{{desafio.categoria}}</h3>
+      <h4>{{desafio.status}}</h4>
+      <button (click)="openModal(desafio)" ion-button item-end>Ver Desafio</button>
+    </ion-item>
+    <ion-item *ngFor="let desafio of desafiosDisponiveis">
+      <ion-thumbnail item-start>
+        <img src="{{desafio.titulo}}.png">
+      </ion-thumbnail>
+      <h2>{{desafio.titulo}}</h2>
+      <h3>{{desafio.categoria}}</h3>
+      <h4>{{desafio.status}}</h4>
+      <button (click)="openModal(desafio)" ion-button item-end>Ver Desafio</button>
+    </ion-item>
+    <ion-item *ngFor="let desafio of desafiosConcluidos">
+      <ion-thumbnail item-start>
+        <img src="{{desafio.titulo}}.png">
       </ion-thumbnail>
       <h2>{{desafio.titulo}}</h2>
       <h3>{{desafio.categoria}}</h3>

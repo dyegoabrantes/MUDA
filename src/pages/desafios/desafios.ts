@@ -3,6 +3,7 @@ import { IonicPage, NavController, ModalController, Platform, NavParams, ViewCon
 import { Desafio } from '../../app/_models/desafio';
 import { DesafioService } from './desafios.service';
 import { DesafioModalPage } from './../desafio-modal/desafio-modal';
+import { AuthService } from './../../providers/auth-service/auth-service';
 
 @IonicPage()
 @Component({
@@ -10,10 +11,16 @@ import { DesafioModalPage } from './../desafio-modal/desafio-modal';
   templateUrl: 'desafios.html',
 })
 export class DesafiosPage {
+  
+  desafiosDisponiveis: Desafio[];
+  desafiosPendentes: Desafio[];
+  desafiosConcluidos: Desafio[];
+
 
   constructor(public navCtrl: NavController,
               public navParams: NavParams,
               public desafioService: DesafioService,
+              private auth: AuthService,
               public modalCtrl: ModalController) {}
 
   openModal(desafio) {
@@ -21,13 +28,39 @@ export class DesafiosPage {
     let myModal = this.modalCtrl.create(DesafioModalPage, desafio);
     myModal.present();
   }
-  
-
-  desafios = this.desafioService.desafios;
-
 
   ionViewDidLoad() {
-    console.log(this.desafios[1])
-  }
+    console.log(this.auth.currentUser.desafiosId.length)
+    for (let i = 0; i < this.desafioService.desafios.length; i++) {
+      if(this.auth.currentUser.desafiosId.length>0){
+        for (let courrentUserId = 0; courrentUserId < this.auth.currentUser.desafiosId.length; courrentUserId++) {
+          if (this.desafioService.desafios[i].id == this.auth.currentUser.desafiosId[courrentUserId]){
+            if (this.desafioService.desafios[i].status == "pending"){
+              this.desafiosPendentes.push(this.desafioService.desafios[i]);
+            }else{
+              if(this.desafioService.desafios[i].status=="done"){
+                this.desafiosConcluidos.push(this.desafioService.desafios[i]);
+              }else{
+                this.desafiosDisponiveis.push(this.desafioService.desafios[i]);
+              }
+            }
+          }
+        }
+      }
+    }
+    console.log(this.auth.currentUser.desafiosId.length)
 
+      // ddddddddd         ddddddddd
+      // dddd    dddd      dddd   ddd
+      // dddd      ddd     ddddddddd
+      // dddd      ddd     dddd    dddd
+      // dddd      ddd     dddd    dddd 
+      // dddd    dddd      dddd    dddd
+      // ddddddddd         ddddddddddd
+
+
+
+
+
+  }
 }

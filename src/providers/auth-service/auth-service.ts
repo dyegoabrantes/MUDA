@@ -1,58 +1,51 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import {Observable} from 'rxjs/Observable';
+import { Usuario } from './../../pages/cadastro/usuario.model';
 import 'rxjs/add/operator/map';
 import 'rxjs/add/operator/catch';
+import { Http, Response } from '@angular/http';
 
-
-/*
-  Generated class for the AuthServiceProvider provider.
-
-  See https://angular.io/guide/dependency-injection for more info on providers
-  and Angular DI.
-*/
-
-export class User {
-  name: string;
-  email: string;
-
-  constructor(name: string, email: string) {
-    this.name = name;
-    this.email = email;
-  }
-}
 
 @Injectable()
 export class AuthService {
-  currentUser: User;
+  
+  constructor(private http:Http,){}
+
+  currentUser: Usuario;
 
   public login(credentials) {
     if (credentials.email === null || credentials.password === null) {
-      return Observable.throw("Please insert credentials");
+      return Observable.throw("Nenhum campo pode ficar vazio");
     } else {
-      return Observable.create(observer => {
-        // At this point make a request to your backend to make a real check!
-        let access = (credentials.password === "pass" && credentials.email === "email");
-        this.currentUser = new User('Simon', 'saimon@devdactic.com');
-        observer.next(access);
-        observer.complete();
-      });
+      console.log('inicia login');      
+      let url = "http://rest.learncode.academy/api/learncode/mudapp";
+      return this.http.get(url)
+      .map((response: Response) => {
+        let users = response.json();
+        let user = users.find(x => x.email == credentials.email);
+        if(user === undefined){
+          return Observable.throw("Usuário não encontrado");
+        }else{
+          if (user.senha == credentials.password){
+            let access = (credentials.password === "pass" && credentials.email === "email");
+            this.currentUser = new Usuario(user.nome, user.email, '', user.habito, user.desafiosId, user.emblemas, user.longitude, user.latitude );
+            console.log(this.currentUser);
+            // return Observable.create(observer => {
+            //   observer.next(access);
+            //   observer.complete();
+            // });
+          }else{
+            return Observable.throw("Senha incorreta");
+          }
+        }
+      })
+      .catch((error: Response) => Observable.throw(error))
+
     }
   }
 
-  public register(credentials) {
-    if (credentials.email === null || credentials.password === null) {
-      return Observable.throw("Please insert credentials");
-    } else {
-      // At this point store the credentials to your backend!
-      return Observable.create(observer => {
-        observer.next(true);
-        observer.complete();
-      });
-    }
-  }
-
-  public getUserInfo() : User {
+  public getUserInfo() : Usuario {
     return this.currentUser;
   }
 

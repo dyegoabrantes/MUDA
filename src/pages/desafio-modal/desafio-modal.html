@@ -21,10 +21,9 @@
     </ion-card>
     <div>
       <div class="duracao" padding text-center>
-        <ion-icon name="alarm"></ion-icon>
-        <span *ngIf="this.status  == 'notyet'">Deve ser realizado em {{duracao}} dia(s)</span>
-        <span *ngIf="this.status == 'pendente'">Deve ser realizado em {{duracao}} dia(s)</span>
-        <span *ngIf="this.status == 'concluido'">Deve ser realizado em {{duracao}} dia(s)</span>
+        <span *ngIf="this.status  == 'notyet'"><ion-icon name="alarm"></ion-icon>Deve ser realizado em {{duracao}} dia(s)</span>
+        <span *ngIf="this.status == 'pendente'"><ion-icon name="alarm"></ion-icon>Deve ser realizado em {{duracao}} dia(s)</span>
+        <span *ngIf="this.status == 'concluido'"><ion-icon name="alarm"></ion-icon>Deve ser realizado em {{duracao}} dia(s)</span>
       </div>
     </div>
     <div class="button-Row" padding  text-center>
