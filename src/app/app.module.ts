@@ -14,7 +14,8 @@ import { RegistroHabitosPage } from '../pages/registro-habitos/registro-habitos'
 import { AppService } from './app.service';
 import { DesafioModalPage } from './../pages/desafio-modal/desafio-modal';
 import { AlmanaquePage } from './../pages/almanaque/almanaque'
-
+import { MudaPage } from './../pages/muda/muda';
+import { CadastraMudaPage } from '../pages/cadastra-muda/cadastra-muda';
 
 import { StatusBar } from '@ionic-native/status-bar';
 import { SplashScreen } from '@ionic-native/splash-screen';
@@ -33,7 +34,12 @@ import { HttpModule } from '@angular/http';
     CadastroPage,
     LoginPage,
     RegistroHabitosPage,
+
     AlmanaquePage,
+
+    MudaPage,
+    CadastraMudaPage
+
   ],
   imports: [
     BrowserModule,
@@ -52,6 +58,8 @@ import { HttpModule } from '@angular/http';
     LoginPage,
     RegistroHabitosPage,
     AlmanaquePage,
+    MudaPage,
+    CadastraMudaPage
   ],
   providers: [
     AppService,

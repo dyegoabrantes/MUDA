@@ -1,8 +1,10 @@
+import { MudaPage } from './../muda/muda';
 import { HomePage } from './../home/home';
 import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams } from 'ionic-angular';
 import { Storage } from '@ionic/storage';
 
+import { CadastraMudaPage } from './../cadastra-muda/cadastra-muda';
 import { Habito } from './habito.model';
 import { Usuario } from './../cadastro/usuario.model';
 import { AppService } from './../../app/app.service';
@@ -61,7 +63,7 @@ export class RegistroHabitosPage {
   }
 
   inserirUsuario(){
-    this.navCtrl.setRoot(HomePage);
+    this.navCtrl.setRoot(CadastraMudaPage);
     this.appService.cadastrarUsuario(this.usuario)
     .subscribe((data) => {
     },

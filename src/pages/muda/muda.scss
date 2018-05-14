@@ -1,0 +1,45 @@
+page-muda {
+
+}
+.container-muda-img{
+    width: 100px;
+    height: 180px;
+    border-radius: 50%; 
+    margin-left: 50px; 
+    margin-top: 7px; 
+    background-color: #fff;
+}
+// @keyframes example {
+//     25% {
+//         border-right: 2px solid #ffe989; 
+//     }
+//     50% {
+//         border-bottom: 2px solid #ffe989;
+//     }
+//     75% {
+//         border-left: 2px solid #ffe989;
+//     }
+//     100% {
+//         border-top: 2px solid #ffe989;
+//     }
+// }
+.container-muda{
+    width: 200px;
+    height: 200px;
+    border-radius: 50%; 
+    background-color: #fff;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%,-50%);
+    animation-name: example;
+    animation-duration: 4s;
+    animation-iteration-count: infinite;
+}
+.container-muda-nome{
+    margin-top: 15px; 
+    border: 2px solid #fff;
+}
+.container-muda-nome p{
+    font-size: 16px;
+}
