@@ -12,22 +12,20 @@ import { CadastroPage } from '../pages/cadastro/cadastro';
 import { LoginPage } from '../pages/login/login';
 import { RegistroHabitosPage } from '../pages/registro-habitos/registro-habitos';
 import { AppService } from './app.service';
-import { DesafioComponent } from './../components/desafio/desafio';
 import { DesafioModalPage } from './../pages/desafio-modal/desafio-modal';
+import { AlmanaquePage } from './../pages/almanaque/almanaque'
 import { MudaPage } from './../pages/muda/muda';
 import { CadastraMudaPage } from '../pages/cadastra-muda/cadastra-muda';
 
 import { StatusBar } from '@ionic-native/status-bar';
 import { SplashScreen } from '@ionic-native/splash-screen';
 import { AuthService } from '../providers/auth-service/auth-service';
-import { UserService } from './services/app.service';
 import { DesafioService } from './../pages/desafios/desafios.service';
 import { HttpModule } from '@angular/http';
 
 
 @NgModule({
   declarations: [
-    DesafioComponent,
     MyApp,
     HomePage,
     ListPage,
@@ -36,8 +34,12 @@ import { HttpModule } from '@angular/http';
     CadastroPage,
     LoginPage,
     RegistroHabitosPage,
+
+    AlmanaquePage,
+
     MudaPage,
     CadastraMudaPage
+
   ],
   imports: [
     BrowserModule,
@@ -55,6 +57,7 @@ import { HttpModule } from '@angular/http';
     CadastroPage,
     LoginPage,
     RegistroHabitosPage,
+    AlmanaquePage,
     MudaPage,
     CadastraMudaPage
   ],
@@ -64,7 +67,6 @@ import { HttpModule } from '@angular/http';
     SplashScreen,
     {provide: ErrorHandler, useClass: IonicErrorHandler},
     AuthService,
-    UserService,
     DesafioService,
   ]
 })

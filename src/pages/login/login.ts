@@ -2,14 +2,8 @@ import { CadastroPage } from './../cadastro/cadastro';
 import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams, LoadingController, AlertController, Loading, } from 'ionic-angular';
 import { AuthService } from './../../providers/auth-service/auth-service';
-import { DesafioComponent } from './../../components/desafio/desafio'
+import { HomePage } from '../home/home';
 
-/**
- * Generated class for the LoginPage page.
- *
- * See https://ionicframework.com/docs/components/#navigation for more info on
- * Ionic pages and navigation.
- */
 
 @IonicPage()
 @Component({
@@ -29,18 +23,15 @@ export class LoginPage {
               private alertCtrl: AlertController,
               private loadingCtrl: LoadingController,
               ) {}
-              desafio: DesafioComponent;
-  // public createAccount() {
-  //   this.navCtrl.push('RegisterPage');
-  // }
-
+              
   public login(){
     this.showLoading()
-    this.auth.login(this.registerCredentials).subscribe(allowed => {
-      if (allowed) {        
-        this.navCtrl.setRoot('');
+    this.auth.login(this.registerCredentials).subscribe(permissao => {
+      if (permissao) {
+        console.log(permissao)
+        this.showError(permissao.error);
       } else {
-        this.showError("Access Denied");
+        this.navCtrl.setRoot(HomePage);
       }
     },
       error => {
@@ -50,17 +41,17 @@ export class LoginPage {
   validado: boolean = false;
   showLoading() {
     this.loading = this.loadingCtrl.create({
-      content: 'Please wait...',
+      content: 'Por favor aguarde',
       dismissOnPageChange: true
     });
     this.loading.present();
   }
 
-  showError(text) {
+  public showError(text) {
     this.loading.dismiss();
  
     let alert = this.alertCtrl.create({
-      title: 'Fail',
+      title: ':(',
       subTitle: text,
       buttons: ['OK']
     });
@@ -72,7 +63,6 @@ export class LoginPage {
   }
 
   ionViewDidLoad() {
-    console.log('load')
   }
 
 }

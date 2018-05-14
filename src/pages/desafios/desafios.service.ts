@@ -14,7 +14,7 @@ export class DesafioService{
             "Água",
             8,
             1,
-            "pendente"),
+            "notyet"),
         new Desafio ( 
             2,
             "Dedo no interruptor",

@@ -29,7 +29,7 @@ export class RegistroHabitosPage {
       public storage: Storage
     ) {
   }
-  usuario: Usuario = new Usuario ('','','',[],0,0)
+  usuario: Usuario = new Usuario ('','','',[],[],[],0,0)
   habitos: Habito[] =  [
     new Habito (1,"Fechar a torneira" , "Fechar a torneira ao escovar os dentes", false,"Agua", 1),
     new Habito (2,"Apagar as luzes" , "Apagar as luzes dos cômodos quando não estiverem presentes", false , "Energia", 1),

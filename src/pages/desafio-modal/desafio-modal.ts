@@ -38,17 +38,17 @@ export class DesafioModalPage {
     this.viewCtrl.dismiss();
   }
   desfioStatus = '';
+  
   ionViewDidLoad() {
     if (this.status == 'notyet'){
-      this.desfioStatus ='notyet';
+      this.desfioStatus ='Disponível';
     }else{
-      if (this.status == 'pendente') {
-        this.desfioStatus ='pendente';
+      if (this.status == 'pending') {
+        this.desfioStatus ='Pendente';
       }else{
-        this.desfioStatus ='concluido';
+        this.desfioStatus ='Concluído';
       }
     }
-    console.log(this,this.desfioStatus)
   }
 
 }

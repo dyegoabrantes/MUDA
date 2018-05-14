@@ -1,11 +1,10 @@
 import { NgModule } from '@angular/core';
-import { DesafioComponent } from './desafio/desafio';
-import { ModalComponent } from './modal/modal';
+
 @NgModule({
-	declarations: [DesafioComponent,
-    ModalComponent],
+	declarations: [
+    ],
 	imports: [],
-	exports: [DesafioComponent,
-    ModalComponent]
+	exports: [,
+    ]
 })
 export class ComponentsModule {}
