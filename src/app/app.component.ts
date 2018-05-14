@@ -10,6 +10,8 @@ import { CadastroPage } from '../pages/cadastro/cadastro';
 import { RegistroHabitosPage } from '../pages/registro-habitos/registro-habitos';
 import { DesafiosPage } from '../pages/desafios/desafios';
 import { CadastroPageModule } from '../pages/cadastro/cadastro.module';
+import { MudaPage } from './../pages/muda/muda';
+import{ CadastraMudaPage } from './../pages/cadastra-muda/cadastra-muda';
 
 @Component({
   templateUrl: 'app.html'
@@ -17,7 +19,7 @@ import { CadastroPageModule } from '../pages/cadastro/cadastro.module';
 export class MyApp {
   @ViewChild(Nav) nav: Nav;
 
-  rootPage: any = LoginPage;
+  rootPage: any = CadastraMudaPage;
 
   pages: Array<{title: string, component: any}>;
 
@@ -32,6 +34,8 @@ export class MyApp {
       { title: 'Login', component: LoginPage },
       { title: 'Registro de hábitos', component: RegistroHabitosPage },
       { title: 'Desafios', component: DesafiosPage },
+      { title: 'Muda', component: MudaPage },
+      { title: 'Cadastra muda', component: CadastraMudaPage }
     ];
 
   }
