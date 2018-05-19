@@ -17,16 +17,18 @@ export class DesafioModalPage {
 	pontuacao: Number = this.navParams.get('pontuacao');
 	duracao: Number = this.navParams.get('duracao');
 	status: String = this.navParams.get('status');
-	arquivo?: Object = this.navParams.get('arquivo');
+  arquivoA?: string = this.navParams.get('arquivoA');
+  arquivoB?: String = this.navParams.get('arquivoB');
 	longitude?: String = this.navParams.get('longitude');
   latitude?: String = this.navParams.get('latitude');
   
   constructor(public navCtrl: NavController,
               public navParams: NavParams,
               public viewCtrl: ViewController,
-              public desafioService: DesafioService) {
-  }
+              public desafioService: DesafioService,
+            ) {}
 
+  
   cancelaDesafio(){
     let id = this.id;
     let obj = this.desafioService.desafios.find(function (obj) { return obj.id === id }); 
@@ -38,7 +40,13 @@ export class DesafioModalPage {
     this.viewCtrl.dismiss();
   }
   desfioStatus = '';
-  
+
+  aceitarDesafio(){
+    let id = this.id;
+    let obj = this.desafioService.desafios.find(function (obj) { return obj.id === id });
+    obj.status="pending";
+  };
+
   ionViewDidLoad() {
     if (this.status == 'notyet'){
       this.desfioStatus ='Disponível';
@@ -50,5 +58,4 @@ export class DesafioModalPage {
       }
     }
   }
-
 }

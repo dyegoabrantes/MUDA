@@ -7,7 +7,8 @@ export class Desafio {
 	pontuacao: Number;
 	duracao: Number;
 	status: String;
-	arquivo?: Object;
+	arquivoA?: String;
+	arquivoB?: String;
 	longitude?: String;
   latitude?: String;
 
@@ -20,7 +21,8 @@ export class Desafio {
 		pontuacao: Number,
 		duracao: Number,
 		status: String,
-		arquivo?: Object,
+		arquivoA?: String,
+		arquivoB?: String,
 		longitude?: String,
 		latitude?: String) {
 			this.id = id;
@@ -30,7 +32,8 @@ export class Desafio {
 			this.pontuacao = pontuacao;
 			this.duracao = duracao;
 			this.status = status;
-			this.arquivo = arquivo;
+			this.arquivoA = arquivoA;
+			this.arquivoB = arquivoB;
 			this.latitude = latitude;
 			this.longitude = longitude;
 		}

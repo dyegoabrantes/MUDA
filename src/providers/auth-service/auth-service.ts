@@ -1,6 +1,7 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import {Observable} from 'rxjs/Observable';
+// import { Storage } from '@ionic/storage';
 import { Usuario } from './../../pages/cadastro/usuario.model';
 import 'rxjs/add/operator/map';
 import 'rxjs/add/operator/catch';
@@ -10,7 +11,7 @@ import { Http, Response } from '@angular/http';
 @Injectable()
 export class AuthService {
   
-  constructor(private http:Http,){}
+  constructor(private http:Http){}
 
   currentUser: Usuario;
 
@@ -19,7 +20,7 @@ export class AuthService {
       return Observable.throw("Nenhum campo pode ficar vazio");
     } else {
       console.log('inicia login');      
-      let url = "http://rest.learncode.academy/api/learncode/mudapp";
+      let url = "/api/usuarios";
       return this.http.get(url)
       .map((response: Response) => {
         let users = response.json();
