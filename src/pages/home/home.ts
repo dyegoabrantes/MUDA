@@ -8,9 +8,10 @@ import { Storage } from '@ionic/storage';
   templateUrl: 'home.html'
 })
 export class HomePage {
-  constructor(public navCtrl: NavController, public storage: Storage) {
+  
+  constructor(public navCtrl: NavController, public storage: Storage) {}
 
-  }
+
   ionViewDidLoad() {
     console.log('ionViewDidLoad HomePage');
   }

@@ -1,7 +1,6 @@
 import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams } from 'ionic-angular';
-import { DesafiosPage } from './../desafios/desafios'
-
+import { DesafioService } from "./../desafios/desafios.service"
 
 @IonicPage()
 @Component({
@@ -12,11 +11,13 @@ export class AlmanaquePage {
 
   constructor(public navCtrl: NavController,
               public navParams: NavParams,
-              private desafios: DesafiosPage) {
-  }
+              public desafioService: DesafioService,
+              ) {  }
+  
 
+  
   ionViewDidLoad() {
-    let desafios = this.desafios.desafiosConcluidos;
+    console.log(this.desafioService.desafiosConcluidos)
   }
 
 }

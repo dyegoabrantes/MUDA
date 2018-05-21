@@ -34,9 +34,7 @@ import { HttpModule } from '@angular/http';
     CadastroPage,
     LoginPage,
     RegistroHabitosPage,
-
     AlmanaquePage,
-
     MudaPage,
     CadastraMudaPage
 

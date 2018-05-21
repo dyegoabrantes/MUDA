@@ -13,24 +13,25 @@ import { AuthService } from './../../providers/auth-service/auth-service';
 export class DesafiosPage {
     
   constructor(public navCtrl: NavController,
-    public navParams: NavParams,
-    public desafioService: DesafioService,
-    private auth: AuthService,
-    public modalCtrl: ModalController) {}
+  public navParams: NavParams,
+  public desafioService: DesafioService,
+  private auth: AuthService,
+  public modalCtrl: ModalController) {}
+
+
+  desafiosDisponiveis: Desafio[] = [];
+  desafiosPendentes: Desafio[] = [];
+  desafiosConcluidos: Desafio[] = [];
     
-    public desafiosDisponiveis: Desafio[] =[];
-    public desafiosPendentes: Desafio[] =[];
-    public desafiosConcluidos: Desafio[] =[];
-    
-    openModal(desafio) {
-      console.log(desafio)
-      let myModal = this.modalCtrl.create(DesafioModalPage, desafio);
-      myModal.present();
-    }
+  openModal(desafio) {
+    console.log(desafio)
+    let myModal = this.modalCtrl.create(DesafioModalPage, desafio);
+    myModal.present();
+  }
     
 
-    carrega() {
-      // console.log(this.auth.currentUser.desafiosId.length)
+  carrega() {
+    // console.log(this.auth.currentUser.desafiosId.length)
     for (let i = 0; i < this.desafioService.desafios.length; i++) {
       console.log(this.desafioService.desafios[i].titulo)
       let titulo = this.desafioService.desafios[i].titulo;
@@ -51,9 +52,11 @@ export class DesafiosPage {
       //   }
       // }
     }
-    }
+  }
 
   ionViewDidLoad() {
     this.carrega();
+    this.desafioService.getDesafiosConcluidos(this.desafiosConcluidos);
   }
+
 }

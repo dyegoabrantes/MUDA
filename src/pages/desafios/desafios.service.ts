@@ -1,7 +1,10 @@
 import { Desafio } from '../../app/_models/desafio';
+import { Injectable } from '@angular/core';
 
+@Injectable()
 export class DesafioService{
    constructor( ){}
+
 
     public desafios: Desafio[] = [
         new Desafio ( 
@@ -83,4 +86,9 @@ export class DesafioService{
             "./../../assets/imgs/Pouca água.png",
         ),
     ];
+
+    desafiosConcluidos = [];
+    getDesafiosConcluidos(desafios){
+        this.desafiosConcluidos=desafios;
+    }
 }
