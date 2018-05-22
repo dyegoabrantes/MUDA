@@ -72,7 +72,7 @@ export class DesafioService{
             7,
             "notyet",
             "./../../assets/imgs/ilustrações-08.png",
-            "./../../assets/imgs/ilustrações-03.png",
+            "./../../assets/imgs/Cada tipo no seu saco.png",
         ),
         new Desafio ( 
             7,

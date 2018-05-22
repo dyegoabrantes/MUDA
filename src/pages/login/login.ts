@@ -2,7 +2,7 @@ import { CadastroPage } from './../cadastro/cadastro';
 import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams, LoadingController, AlertController, Loading, } from 'ionic-angular';
 import { AuthService } from './../../providers/auth-service/auth-service';
-import { HomePage } from '../home/home';
+import { MudaPage } from '../muda/muda';
 
 
 @IonicPage()
@@ -31,7 +31,7 @@ export class LoginPage {
         console.log(permissao)
         this.showError(permissao.error);
       } else {
-        this.navCtrl.setRoot(HomePage);
+        this.navCtrl.setRoot(MudaPage);
       }
     },
       error => {

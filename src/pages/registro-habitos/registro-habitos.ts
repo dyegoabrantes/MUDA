@@ -1,5 +1,4 @@
 import { MudaPage } from './../muda/muda';
-import { HomePage } from './../home/home';
 import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams } from 'ionic-angular';
 import { Storage } from '@ionic/storage';
@@ -8,12 +7,7 @@ import { CadastraMudaPage } from './../cadastra-muda/cadastra-muda';
 import { Habito } from './habito.model';
 import { Usuario } from './../cadastro/usuario.model';
 import { AppService } from './../../app/app.service';
-/**
- * Generated class for the RegistroHabitosPage page.
- *
- * See https://ionicframework.com/docs/components/#navigation for more info on
- * Ionic pages and navigation.
- */
+
 
 @IonicPage()
 @Component({
