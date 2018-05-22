@@ -19,14 +19,14 @@ export class LoginPage {
 
   constructor(public navCtrl: NavController,
               public navParams: NavParams,
-              private auth: AuthService,
+              private authService: AuthService,
               private alertCtrl: AlertController,
               private loadingCtrl: LoadingController,
               ) {}
               
   public login(){
     this.showLoading()
-    this.auth.login(this.registerCredentials).subscribe(permissao => {
+    this.authService.login(this.registerCredentials).subscribe(permissao => {
       if (permissao) {
         console.log(permissao)
         this.showError(permissao.error);
@@ -37,6 +37,17 @@ export class LoginPage {
       error => {
         this.showError(error);
       });
+    // this.authService.login(this.registerCredentials).subscribe(permition => {
+    //   if (permition) {
+    //     console.log(permition)
+    //     this.showError(permition.error);
+    //   } else {
+    //     this.navCtrl.setRoot(MudaPage);
+    //   }
+    // },
+    //   error => {
+    //     this.showError(error);
+    //   });
   }
   validado: boolean = false;
   showLoading() {

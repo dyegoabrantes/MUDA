@@ -6,7 +6,7 @@ import { Storage } from '@ionic/storage';
 import { CadastraMudaPage } from './../cadastra-muda/cadastra-muda';
 import { Habito } from './habito.model';
 import { Usuario } from './../cadastro/usuario.model';
-import { AppService } from './../../app/app.service';
+import { AuthService } from './../../providers/auth-service/auth-service';
 
 
 @IonicPage()
@@ -19,7 +19,7 @@ export class RegistroHabitosPage {
   constructor(
       public navCtrl: NavController, 
       public navParams: NavParams, 
-      public appService: AppService,
+      public authService: AuthService,
       public storage: Storage
     ) {
   }
@@ -53,22 +53,34 @@ export class RegistroHabitosPage {
 
   statusHabito(habito){
     console.log(habito.status)
-    
   }
 
   inserirUsuario(){
-    this.navCtrl.setRoot(CadastraMudaPage);
-    this.appService.cadastrarUsuario(this.usuario)
-    .subscribe((data) => {
+    console.log('tentativa de inserção no banco')
+    this.authService.cadastraUsuario(this.usuario)
+    .subscribe(response => {
+      if (response) {
+        console.log(response)
+      } else {
+        this.navCtrl.setRoot(MudaPage);
+      }
     },
-      (error) => console.log(error));
+      error => {
+        console.log(error);
+      });
+    // .subscribe((response) => {
+    // },
+    // (error) => console.log(error));
+    // this.navCtrl.setRoot(CadastraMudaPage);
   }
 
   cadastrar(){
     for(let i of this.habitos){
       if(i.status){
         this.usuario.habito.push(i.id)
-      }{
+      }else{
+      }
     }
+    this.inserirUsuario()
   }
-}}
+}

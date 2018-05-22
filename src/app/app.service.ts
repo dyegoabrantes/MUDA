@@ -13,14 +13,8 @@ export class FooModule {
 
 @Injectable()
 export class AppService{
-
-    url:string = "http://rest.learncode.academy/api/learncode/mudapp";
       
     constructor(private http: Http ){}
 
-    cadastrarUsuario(usuario: Usuario){
-        return this.http.post(this.url, usuario)
-        .map((response: Response) =>  response.json())
-        .catch((error: Response) => Observable.throw(error));
-    }  
+  
 }
