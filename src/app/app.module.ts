@@ -13,7 +13,6 @@ import { DesafioModalPageModule } from './../pages/desafio-modal/desafio-modal.m
 import { AlmanaquePageModule } from './../pages/almanaque/almanaque.module'
 import { MudaPageModule } from './../pages/muda/muda.module';
 import { CadastraMudaPageModule } from '../pages/cadastra-muda/cadastra-muda.module';
-
 import { StatusBar } from '@ionic-native/status-bar';
 import { SplashScreen } from '@ionic-native/splash-screen';
 import { AuthService } from '../providers/auth-service/auth-service';

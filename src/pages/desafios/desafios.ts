@@ -11,24 +11,23 @@ import { AuthService } from './../../providers/auth-service/auth-service';
   templateUrl: 'desafios.html',
 })
 export class DesafiosPage {
-    
+
   constructor(public navCtrl: NavController,
-  public navParams: NavParams,
-  public desafioService: DesafioService,
-  private auth: AuthService,
-  public modalCtrl: ModalController) {}
-
-
-  desafiosDisponiveis: Desafio[] = [];
+              public navParams: NavParams,
+              public desafioService: DesafioService,
+              private auth: AuthService,
+              public modalCtrl: ModalController) {}
+  desafiosDisponiveis: Desafio[]= [];
   desafiosPendentes: Desafio[] = [];
   desafiosConcluidos: Desafio[] = [];
-    
+
   openModal(desafio) {
     console.log(desafio)
     let myModal = this.modalCtrl.create(DesafioModalPage, desafio);
     myModal.present();
   }
     
+
 
   carrega() {
     // console.log(this.auth.currentUser.desafiosId.length)
@@ -52,7 +51,7 @@ export class DesafiosPage {
       //   }
       // }
     }
-  }
+
 
   ionViewDidLoad() {
     this.carrega();

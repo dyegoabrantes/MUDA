@@ -17,7 +17,6 @@ export class MudaPage {
   ionViewDidLoad() {
     this.storage.get('nome-muda').then((val) => {
       this.muda.nome = val
-      console.log(this.muda.nome);
     });
   }
 }

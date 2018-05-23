@@ -13,7 +13,6 @@ export class FooModule {
 
 @Injectable()
 export class AppService{
-      
     constructor(private http: Http ){}
 
   
