@@ -24,6 +24,12 @@ export class RegistroHabitosPage {
     ) {
   }
   usuario: Usuario = new Usuario ('','','',[],[],[],0,0)
+  habitosCar = []
+  cont = 0
+  prog=false
+  prog2 = false
+  prox = false
+  valid = true
   habitos: Habito[] =  [
     new Habito (1,"Fechar a torneira" , "Fechar a torneira ao escovar os dentes", false,"Agua", 1),
     new Habito (2,"Apagar as luzes" , "Apagar as luzes dos cômodos quando não estiverem presentes", false , "Energia", 1),
@@ -48,8 +54,35 @@ export class RegistroHabitosPage {
     this.storage.get('senha').then((val) => {
       this.usuario.senha = val
     });
-
+    this.carrega();
   }
+
+  carrega(){ 
+    for(let i =0; i < this.habitos.length; i ++){
+      if ( this.cont== 0 && i < 4){
+          this.habitosCar.push(this.habitos[i]);
+      }
+      if( this.cont == 1 && i >=4 && i <= 7 ){
+        if(this.habitosCar.length==4){
+            this.habitosCar = []
+        }
+        this.habitosCar.push(this.habitos[i]);
+        this.prog = true
+      }
+      if( this.cont == 2){
+        if(this.habitosCar.length >=2){
+          this.habitosCar = []
+       }
+        this.habitosCar.push(this.habitos[i]);
+        this.prog2 = true
+        this.prox = true
+        this.valid = false
+      }
+    }
+    this.cont++;
+    
+  }
+
 
   statusHabito(habito){
     console.log(habito.status)

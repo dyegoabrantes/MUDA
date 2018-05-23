@@ -3,8 +3,45 @@ page-registro-habitos {
 }
 
 .btn-habito{
+    margin-top: 10px;
     color: #fff;
     border: 2px solid #fff;
     width: 100%;
-    border-radius: 50px; 
+    border-radius: 50px;
+}
+
+.card--habito{
+    background-color: #278989;
+    color: #fff;
+    width: 85%;
+    margin: auto;
+}
+.progress {
+    display: block;
+    width: 170px;
+    margin: 0 auto; 
+}
+.progress-1, .progress-2, .progress-3{
+    width: 50px;
+    height: 5px;
+    float: left;
+    margin-right: 5px;
+    border-radius: 5px;
+}
+.progress-2 {
+    background-color: #1e6d6d;
+}
+
+.progress-3{
+    background-color: #1e6d6d;
+}
+.progress-1 {
+    background-color: #fff;
+}
+.btn-prox{
+    width: 100%;
+    margin-top: 10px;
+}
+.btn-none{
+    display: none;
 }
