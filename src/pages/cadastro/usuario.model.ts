@@ -3,7 +3,7 @@ export class Usuario {
         public nome: string,
         public email: string,
         public senha: string,
-        public habito: number[],
+        public habitos: number[],
         public desafiosId: number[],
         public emblemas= [],
         public logitude?: number,

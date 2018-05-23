@@ -11,9 +11,6 @@ import { AuthService } from './../../providers/auth-service/auth-service';
   templateUrl: 'desafios.html',
 })
 export class DesafiosPage {
-  
-  
-
 
   constructor(public navCtrl: NavController,
               public navParams: NavParams,
@@ -23,15 +20,20 @@ export class DesafiosPage {
   desafiosDisponiveis: Desafio[]= [];
   desafiosPendentes: Desafio[] = [];
   desafiosConcluidos: Desafio[] = [];
+
   openModal(desafio) {
     console.log(desafio)
     let myModal = this.modalCtrl.create(DesafioModalPage, desafio);
     myModal.present();
   }
+    
 
-  ionViewDidLoad() {
+
+  carrega() {
     // console.log(this.auth.currentUser.desafiosId.length)
     for (let i = 0; i < this.desafioService.desafios.length; i++) {
+      console.log(this.desafioService.desafios[i].titulo)
+      let titulo = this.desafioService.desafios[i].titulo;
       this.desafiosDisponiveis.push(this.desafioService.desafios[i]);
       // if(this.auth.currentUser.desafiosId.length>0){
       //   for (let courrentUserId = 0; courrentUserId < this.auth.currentUser.desafiosId.length; courrentUserId++) {
@@ -49,19 +51,11 @@ export class DesafiosPage {
       //   }
       // }
     }
-  
-
-      // ddddddddd         ddddddddd
-      // dddd    dddd      dddd   ddd
-      // dddd      ddd     ddddddddd
-      // dddd      ddd     dddd    dddd
-      // dddd      ddd     dddd    dddd 
-      // dddd    dddd      dddd    dddd
-      // ddddddddd         ddddddddddd
 
 
-
-
-
+  ionViewDidLoad() {
+    this.carrega();
+    this.desafioService.getDesafiosConcluidos(this.desafiosConcluidos);
   }
+
 }

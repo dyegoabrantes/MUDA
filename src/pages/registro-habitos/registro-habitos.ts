@@ -1,5 +1,4 @@
 import { MudaPage } from './../muda/muda';
-import { HomePage } from './../home/home';
 import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams } from 'ionic-angular';
 import { Storage } from '@ionic/storage';
@@ -7,13 +6,8 @@ import { Storage } from '@ionic/storage';
 import { CadastraMudaPage } from './../cadastra-muda/cadastra-muda';
 import { Habito } from './habito.model';
 import { Usuario } from './../cadastro/usuario.model';
-import { AppService } from './../../app/app.service';
-/**
- * Generated class for the RegistroHabitosPage page.
- *
- * See https://ionicframework.com/docs/components/#navigation for more info on
- * Ionic pages and navigation.
- */
+import { AuthService } from './../../providers/auth-service/auth-service';
+
 
 @IonicPage()
 @Component({
@@ -25,7 +19,7 @@ export class RegistroHabitosPage {
   constructor(
       public navCtrl: NavController, 
       public navParams: NavParams, 
-      public appService: AppService,
+      public authService: AuthService,
       public storage: Storage
     ) {
   }
@@ -92,22 +86,33 @@ export class RegistroHabitosPage {
 
   statusHabito(habito){
     console.log(habito.status)
-    
   }
 
   inserirUsuario(){
-    this.navCtrl.setRoot(CadastraMudaPage);
-    this.appService.cadastrarUsuario(this.usuario)
-    .subscribe((data) => {
+    this.authService.cadastraUsuario(this.usuario)
+    .subscribe(response => {
+      if (response) {
+        console.log(response)
+      } else {
+        this.navCtrl.setRoot(CadastraMudaPage);
+      }
     },
-      (error) => console.log(error));
+      error => {
+        console.log(error);
+      });
+    // .subscribe((response) => {
+    // },
+    // (error) => console.log(error));
+    // this.navCtrl.setRoot(CadastraMudaPage);
   }
 
   cadastrar(){
     for(let i of this.habitos){
       if(i.status){
-        this.usuario.habito.push(i.id)
-      }{
+        this.usuario.habitos.push(i.id)
+      }else{
+      }
     }
+    this.inserirUsuario()
   }
-}}
+}
