@@ -1,7 +1,8 @@
 import { Component } from '@angular/core';
+import { SocialSharing } from '@ionic-native/social-sharing';
 import { IonicPage, NavController, NavParams } from 'ionic-angular';
-import { DesafiosPage } from './../desafios/desafios'
-
+import { DesafioService } from "./../desafios/desafios.service";
+import { Desafio } from './../../app/_models/desafio'
 
 @IonicPage()
 @Component({
@@ -12,11 +13,23 @@ export class AlmanaquePage {
 
   constructor(public navCtrl: NavController,
               public navParams: NavParams,
-              private desafios: DesafiosPage) {
-  }
+              public desafioService: DesafioService,
+              private socialSharing: SocialSharing
+              ) {  }
+  
+  desafios= this.desafioService.desafios;
 
+
+  share(message, subject, file, url){
+    this.socialSharing.share('Body', 'Subject', ['recipient@example.org']).then(() => {
+      // Success!
+    }).catch(() => {
+      // Error!
+    });
+  }
+  
   ionViewDidLoad() {
-    let desafios = this.desafios.desafiosConcluidos;
+    
   }
 
 }

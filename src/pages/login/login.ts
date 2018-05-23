@@ -2,7 +2,7 @@ import { CadastroPage } from './../cadastro/cadastro';
 import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams, LoadingController, AlertController, Loading, } from 'ionic-angular';
 import { AuthService } from './../../providers/auth-service/auth-service';
-import { HomePage } from '../home/home';
+import { MudaPage } from '../muda/muda';
 
 
 @IonicPage()
@@ -19,24 +19,35 @@ export class LoginPage {
 
   constructor(public navCtrl: NavController,
               public navParams: NavParams,
-              private auth: AuthService,
+              private authService: AuthService,
               private alertCtrl: AlertController,
               private loadingCtrl: LoadingController,
               ) {}
               
   public login(){
     this.showLoading()
-    this.auth.login(this.registerCredentials).subscribe(permissao => {
+    this.authService.login(this.registerCredentials).subscribe(permissao => {
       if (permissao) {
         console.log(permissao)
         this.showError(permissao.error);
       } else {
-        this.navCtrl.setRoot(HomePage);
+        this.navCtrl.setRoot(MudaPage);
       }
     },
       error => {
         this.showError(error);
       });
+    // this.authService.login(this.registerCredentials).subscribe(permition => {
+    //   if (permition) {
+    //     console.log(permition)
+    //     this.showError(permition.error);
+    //   } else {
+    //     this.navCtrl.setRoot(MudaPage);
+    //   }
+    // },
+    //   error => {
+    //     this.showError(error);
+    //   });
   }
   validado: boolean = false;
   showLoading() {

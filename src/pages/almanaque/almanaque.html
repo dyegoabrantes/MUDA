@@ -8,9 +8,16 @@
 </ion-header>
 
 <ion-content padding>
-  <ion-card>
+  <ion-card *ngFor="let desafio of desafios">
     <ion-card-content>
-      <img src="assets/img/img-icon.png" />
+      <img src={{desafio.arquivoB}} />
+      <div padding>
+        <p class="titulo" text-center text-uppercase >{{desafio.titulo}}</p>
+        <div padding>
+          <p class="descricao" >{{desafio.descricao}}</p>
+        </div>
+        <ion-icon name="md-share" (click)="share(desafio.descricao,desafio.titulo,desafio.arquivoB,'www.google.com')"></ion-icon>       
+      </div>
     </ion-card-content>
   </ion-card>
 </ion-content>
