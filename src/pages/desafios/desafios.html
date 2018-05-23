@@ -1,6 +1,9 @@
 <ion-header>
 
   <ion-navbar>
+    <button ion-button menuToggle>
+      <ion-icon name="menu"></ion-icon>
+    </button>
     <ion-title>desafios</ion-title>
   </ion-navbar>
 
@@ -10,13 +13,31 @@
 <ion-content padding>
 
   <ion-list>
-    <ion-item *ngFor="let desafio of desafios">
+    <ion-item *ngFor="let desafio of desafiosPendentes">
       <ion-thumbnail item-start>
-        <img src="img/thumbnail-totoro.png">
+        <img src={{desafio.arquivoA}}>
       </ion-thumbnail>
-      <h2>{{desafio.titulo}}</h2>
-      <h3>{{desafio.categoria}}</h3>
-      <h4>{{desafio.status}}</h4>
+      <p class="titulo">{{desafio.titulo}}</p>
+      <p class="categoria">{{desafio.categoria}}</p>
+      <p class="status">{{desafio.status}}</p>
+      <button (click)="openModal(desafio)" ion-button item-end>Ver Desafio</button>
+    </ion-item>
+    <ion-item *ngFor="let desafio of desafiosDisponiveis; let i = index">
+      <ion-thumbnail item-start>
+        <img src={{desafio.arquivoA}}>
+      </ion-thumbnail>
+      <p class="titulo">{{desafio.titulo}}</p>
+      <p class="categoria">{{desafio.categoria}}</p>
+      <p class="status">{{desafio.status}}</p>
+      <button (click)="openModal(desafio)" ion-button item-end>Ver Desafio</button>
+    </ion-item>
+    <ion-item *ngFor="let desafio of desafiosConcluidos">
+      <ion-thumbnail item-start>
+        <img src={{desafio.arquivoA}}>
+      </ion-thumbnail>
+      <p class="titulo">{{desafio.titulo}}</p>
+      <p class="categoria">{{desafio.categoria}}</p>
+      <p class="status">{{desafio.status}}</p>
       <button (click)="openModal(desafio)" ion-button item-end>Ver Desafio</button>
     </ion-item>
   </ion-list>

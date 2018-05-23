@@ -1,0 +1,23 @@
+<ion-header>
+  <ion-navbar>
+    <button ion-button menuToggle>
+      <ion-icon name="menu"></ion-icon>
+    </button>
+    <ion-title>Almanaque</ion-title>
+  </ion-navbar>
+</ion-header>
+
+<ion-content padding>
+  <ion-card *ngFor="let desafio of desafios">
+    <ion-card-content>
+      <img src={{desafio.arquivoB}} />
+      <div padding>
+        <p class="titulo" text-center text-uppercase >{{desafio.titulo}}</p>
+        <div padding>
+          <p class="descricao" >{{desafio.descricao}}</p>
+        </div>
+        <ion-icon name="md-share" (click)="share(desafio.descricao,desafio.titulo,desafio.arquivoB,'www.google.com')"></ion-icon>       
+      </div>
+    </ion-card-content>
+  </ion-card>
+</ion-content>

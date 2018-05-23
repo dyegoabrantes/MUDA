@@ -1,10 +1,10 @@
 import { Desafio } from '../../app/_models/desafio';
+import { Injectable } from '@angular/core';
 
+@Injectable()
 export class DesafioService{
+   constructor( ){}
 
-    url:string = "http://rest.learncode.academy/api/learncode/mudapp";
-      
-    constructor( ){}
 
     public desafios: Desafio[] = [
         new Desafio ( 
@@ -14,7 +14,10 @@ export class DesafioService{
             "Água",
             8,
             1,
-            "pendente"),
+            "notyet",
+            "./../../assets/imgs/Torneira fechada.png",
+            "./../../assets/imgs/Torneira fechada.png"
+        ),
         new Desafio ( 
             2,
             "Dedo no interruptor",
@@ -22,7 +25,10 @@ export class DesafioService{
             "Energia",
             8,
             1,
-            "pendente"),
+            "notyet",
+            "./../../assets/imgs/Dedo no interruptor.png",           
+            "./../../assets/imgs/Dedo no interruptor.png",        
+        ),
         new Desafio ( 
             3,
             "Bye Bye Standby!",
@@ -30,7 +36,10 @@ export class DesafioService{
             "Energia",
             8,
             1,
-            "pendente"),
+            "notyet",
+            "./../../assets/imgs/bye bye standby!.png",
+            "./../../assets/imgs/bye bye standby!.png",           
+            ),
         new Desafio ( 
             4,
             "Só polui",
@@ -38,7 +47,9 @@ export class DesafioService{
             "Energia",
             20,
             5,
-            "pendente",
+            "notyet",
+            "./../../assets/imgs/Só polui.png",
+            "./../../assets/imgs/Só polui.png",
             '-4.979414',
             '-39.0564111'),
         new Desafio ( 
@@ -48,7 +59,10 @@ export class DesafioService{
             "Energia",
             15,
             5,
-            "pendente"),
+            "notyet",
+            "./../../assets/imgs/Clara como o dia.png",
+            "./../../assets/imgs/Clara como o dia.png",            
+        ),
         new Desafio ( 
             6,
             "Cada tipo no seu saco",
@@ -56,7 +70,10 @@ export class DesafioService{
             "Residuos",
             12,
             7,
-            "pendente"),
+            "notyet",
+            "./../../assets/imgs/ilustrações-08.png",
+            "./../../assets/imgs/Cada tipo no seu saco.png",
+        ),
         new Desafio ( 
             7,
             "Pouca água",
@@ -64,6 +81,14 @@ export class DesafioService{
             "Água",
             8,
             1,
-            "pendente")
+            "notyet",
+            "./../../assets/imgs/Pouca água.png",
+            "./../../assets/imgs/Pouca água.png",
+        ),
     ];
+
+    desafiosConcluidos = [];
+    getDesafiosConcluidos(desafios){
+        this.desafiosConcluidos=desafios;
+    }
 }

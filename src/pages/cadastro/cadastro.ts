@@ -1,17 +1,14 @@
-import { IonicPage, NavController, NavParams } from 'ionic-angular';
+import { LoginPage } from './../login/login';
+import { IonicPage, NavController } from 'ionic-angular';
 import { FormBuilder, Validators, FormGroup } from '@angular/forms';
 import { AppService } from './../../app/app.service';
+import { AuthService } from './../../providers/auth-service/auth-service'
 import { Usuario } from './usuario.model';
 import { Storage } from '@ionic/storage';
 import { RegistroHabitosPage } from '../registro-habitos/registro-habitos'
 
 import { Component } from '@angular/core';
-/**
- * Generated class for the CadastroPage page.
- *
- * See https://ionicframework.com/docs/components/#navigation for more info on
- * Ionic pages and navigation.
- */
+
 
 @IonicPage()
 @Component({
@@ -23,6 +20,7 @@ export class CadastroPage {
   constructor(  public formBuilder: FormBuilder,
                 public navController: NavController,
                 public appService: AppService,
+                public authService: AuthService,
                 public storage: Storage ) {
         this.loginForm = this.formBuilder.group({
           nome:['', Validators.required],
@@ -41,8 +39,6 @@ export class CadastroPage {
   errorEmail = false;
   errorPassword = false;
   
-
-
   validar() {
     let { nome, usuario_email1, usuario_email2, senha1, senha2 } = this.loginForm.controls;
     this.messageNome = ""
@@ -98,7 +94,8 @@ export class CadastroPage {
           this.storage.set('nome', nome.value);
           this.storage.set('email', usuario_email1.value);
           this.storage.set('senha', senha1.value);
-          this.navController.setRoot(RegistroHabitosPage)
+          console.log('vamos lá')
+          this.navController.setRoot(RegistroHabitosPage);     
         }
       }else{
         this.errorPassword = true;
@@ -109,15 +106,13 @@ export class CadastroPage {
       this.messageEmail = "Os emails digitados não correspodem"
     }
   } 
-    
-  cadastrar(usuario: Usuario){
-    this.appService.cadastrarUsuario(usuario)
-      .subscribe((data) => {
-      },
-        (error) => console.log(error));
+
+  voltar(){
+    this.storage.clear();
+    this.navController.setRoot(LoginPage);
   }
   ionViewDidLoad() {
-    
+    this.storage.clear();
   }
 }
 

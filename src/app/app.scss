@@ -15,14 +15,38 @@
 // for the .md, .ios, or .wp mode classes. The mode class is
 // automatically applied to the <body> element in the app.
 .scroll-content{
-    background-color: color($colors, camurca) !important;
+    background-color: color($colors, secondary);
 }
 .toolbar-background-md{
-    background-color: color($colors, azulHeader) !important ;
+    background-color: color($colors, primary);
 }
-.toolbar-title-md{
+.toolbar-title-md, .bar-button-default-md, ion-title, ion-item, h1, h2, h3, h4, h5, h6, p{
     color: white;
 }
-.bar-button-default-md{
-    color: white;
+h1, h2, h3, h4, h5, h6, p, span, ion-header, ion-title, ion-content, ion-list, ion-item, ion-label {
+    font-family: 'Montserrat';
+}
+ion-item {
+    font-weight: 400;
+}
+h1, h2, h3, h4, h5, h6, ion-title {
+    font-weight: 700;
+}
+span, a {
+    font-weight: 500;
+}
+a {
+    color: color($colors, light);
+    text-decoration: none;
+}
+.ion-list {
+    background-color: color($colors, primary);
+}
+.alert-title, .alert-sub-title {
+    color: color($colors, danger);
+}
+.item  {
+    .label-md {
+        background-color: transparent;
+    }
 }

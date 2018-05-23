@@ -1,14 +1,9 @@
+import { CadastroPage } from './../cadastro/cadastro';
 import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams, LoadingController, AlertController, Loading, } from 'ionic-angular';
 import { AuthService } from './../../providers/auth-service/auth-service';
-import { DesafioComponent } from './../../components/desafio/desafio'
+import { MudaPage } from '../muda/muda';
 
-/**
- * Generated class for the LoginPage page.
- *
- * See https://ionicframework.com/docs/components/#navigation for more info on
- * Ionic pages and navigation.
- */
 
 @IonicPage()
 @Component({
@@ -24,51 +19,61 @@ export class LoginPage {
 
   constructor(public navCtrl: NavController,
               public navParams: NavParams,
-              private auth: AuthService,
+              private authService: AuthService,
               private alertCtrl: AlertController,
               private loadingCtrl: LoadingController,
               ) {}
-              desafio: DesafioComponent;
-  // public createAccount() {
-  //   this.navCtrl.push('RegisterPage');
-  // }
-
+              
   public login(){
     this.showLoading()
-    this.auth.login(this.registerCredentials).subscribe(allowed => {
-      if (allowed) {        
-        this.navCtrl.setRoot('');
+    this.authService.login(this.registerCredentials).subscribe(permissao => {
+      if (permissao) {
+        console.log(permissao)
+        this.showError(permissao.error);
       } else {
-        this.showError("Access Denied");
+        this.navCtrl.setRoot(MudaPage);
       }
     },
       error => {
         this.showError(error);
       });
+    // this.authService.login(this.registerCredentials).subscribe(permition => {
+    //   if (permition) {
+    //     console.log(permition)
+    //     this.showError(permition.error);
+    //   } else {
+    //     this.navCtrl.setRoot(MudaPage);
+    //   }
+    // },
+    //   error => {
+    //     this.showError(error);
+    //   });
   }
   validado: boolean = false;
   showLoading() {
     this.loading = this.loadingCtrl.create({
-      content: 'Please wait...',
+      content: 'Por favor aguarde',
       dismissOnPageChange: true
     });
     this.loading.present();
   }
 
-  showError(text) {
+  public showError(text) {
     this.loading.dismiss();
  
     let alert = this.alertCtrl.create({
-      title: 'Fail',
+      title: ':(',
       subTitle: text,
       buttons: ['OK']
     });
     alert.present();
   }
 
+  createAccount(){
+    this.navCtrl.setRoot(CadastroPage);
+  }
 
   ionViewDidLoad() {
-    console.log('load')
   }
 
 }

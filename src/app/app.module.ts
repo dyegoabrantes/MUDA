@@ -1,57 +1,48 @@
-import { Http } from '@angular/http';
 import { BrowserModule } from '@angular/platform-browser';
 import { ErrorHandler, NgModule } from '@angular/core';
 import { IonicApp, IonicErrorHandler, IonicModule } from 'ionic-angular';
 import { IonicStorageModule } from '@ionic/storage';
 
 import { MyApp } from './app.component';
-import { HomePage } from '../pages/home/home';
-import { ListPage } from '../pages/list/list';
-import { DesafiosPage } from '../pages/desafios/desafios';
-import { CadastroPage } from '../pages/cadastro/cadastro';
-import { LoginPage } from '../pages/login/login';
-import { RegistroHabitosPage } from '../pages/registro-habitos/registro-habitos';
+import { DesafiosPageModule } from '../pages/desafios/desafios.module';
+import { CadastroPageModule } from '../pages/cadastro/cadastro.module';
+import { LoginPageModule } from '../pages/login/login.module';
+import { RegistroHabitosPageModule } from '../pages/registro-habitos/registro-habitos.module';
 import { AppService } from './app.service';
-import { DesafioComponent } from './../components/desafio/desafio';
-import { DesafioModalPage } from './../pages/desafio-modal/desafio-modal';
-
+import { DesafioModalPageModule } from './../pages/desafio-modal/desafio-modal.module';
+import { AlmanaquePageModule } from './../pages/almanaque/almanaque.module'
+import { MudaPageModule } from './../pages/muda/muda.module';
+import { CadastraMudaPageModule } from '../pages/cadastra-muda/cadastra-muda.module';
 
 import { StatusBar } from '@ionic-native/status-bar';
 import { SplashScreen } from '@ionic-native/splash-screen';
 import { AuthService } from '../providers/auth-service/auth-service';
-import { UserService } from './services/app.service';
 import { DesafioService } from './../pages/desafios/desafios.service';
 import { HttpModule } from '@angular/http';
+import { SocialSharing } from '@ionic-native/social-sharing';
 
 
 @NgModule({
   declarations: [
-    DesafioComponent,
     MyApp,
-    HomePage,
-    ListPage,
-    DesafiosPage,
-    DesafioModalPage,
-    CadastroPage,
-    LoginPage,
-    RegistroHabitosPage,
   ],
   imports: [
     BrowserModule,
     IonicModule.forRoot(MyApp),
     HttpModule,
-    IonicStorageModule.forRoot()
+    IonicStorageModule.forRoot(),
+    DesafiosPageModule,
+    DesafioModalPageModule,
+    CadastroPageModule,
+    LoginPageModule,
+    RegistroHabitosPageModule,
+    AlmanaquePageModule,
+    MudaPageModule,
+    CadastraMudaPageModule
   ],
   bootstrap: [IonicApp],
   entryComponents: [
     MyApp,
-    HomePage,
-    ListPage,
-    DesafiosPage,
-    DesafioModalPage,
-    CadastroPage,
-    LoginPage,
-    RegistroHabitosPage,
   ],
   providers: [
     AppService,
@@ -59,8 +50,8 @@ import { HttpModule } from '@angular/http';
     SplashScreen,
     {provide: ErrorHandler, useClass: IonicErrorHandler},
     AuthService,
-    UserService,
     DesafioService,
+    SocialSharing
   ]
 })
 export class AppModule {}

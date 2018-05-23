@@ -69,6 +69,7 @@
       </ion-item>
       <h6 *ngIf="errorPassword" class="error"> {{messagePassword}}</h6>
     </ion-list>
-    <button ion-button block outline >Confirmar</button>
+    <button ion-button round class="submit-btn" text-center>Confirmar</button>
   </form>
+  <button ion-button class="register-btn" block clear (click)="voltar()">Voltar</button>
 </ion-content>

@@ -3,21 +3,22 @@ import { Nav, Platform } from 'ionic-angular';
 import { StatusBar } from '@ionic-native/status-bar';
 import { SplashScreen } from '@ionic-native/splash-screen';
 
-import { HomePage } from '../pages/home/home';
-import { ListPage } from '../pages/list/list';
 import { LoginPage } from '../pages/login/login';
 import { CadastroPage } from '../pages/cadastro/cadastro';
 import { RegistroHabitosPage } from '../pages/registro-habitos/registro-habitos';
 import { DesafiosPage } from '../pages/desafios/desafios';
-import { CadastroPageModule } from '../pages/cadastro/cadastro.module';
+import { AlmanaquePage } from '../pages/almanaque/almanaque';
+import { MudaPage } from './../pages/muda/muda';
+import{ CadastraMudaPage } from './../pages/cadastra-muda/cadastra-muda';
+
 
 @Component({
   templateUrl: 'app.html'
 })
 export class MyApp {
   @ViewChild(Nav) nav: Nav;
+  rootPage: any = LoginPage;
 
-  rootPage: any = HomePage;
 
   pages: Array<{title: string, component: any}>;
 
@@ -26,12 +27,13 @@ export class MyApp {
 
     // used for an example of ngFor and navigation
     this.pages = [
-      { title: 'Home', component: HomePage },
-      { title: 'List', component: ListPage },
+      { title: 'Muda', component: MudaPage },
       { title: 'Cadastro', component: CadastroPage },
       { title: 'Login', component: LoginPage },
       { title: 'Registro de hábitos', component: RegistroHabitosPage },
       { title: 'Desafios', component: DesafiosPage },
+      { title: 'Almanaque', component: AlmanaquePage },
+      { title: 'Cadastra muda', component: CadastraMudaPage }
     ];
 
   }
