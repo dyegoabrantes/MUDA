@@ -17,7 +17,7 @@ import{ CadastraMudaPage } from './../pages/cadastra-muda/cadastra-muda';
 })
 export class MyApp {
   @ViewChild(Nav) nav: Nav;
-  rootPage: any = AlmanaquePage;
+  rootPage: any = LoginPage;
 
 
   pages: Array<{title: string, component: any}>;

@@ -56,13 +56,12 @@ export class RegistroHabitosPage {
   }
 
   inserirUsuario(){
-    console.log('tentativa de inserção no banco')
     this.authService.cadastraUsuario(this.usuario)
     .subscribe(response => {
       if (response) {
         console.log(response)
       } else {
-        this.navCtrl.setRoot(MudaPage);
+        this.navCtrl.setRoot(CadastraMudaPage);
       }
     },
       error => {
@@ -77,7 +76,7 @@ export class RegistroHabitosPage {
   cadastrar(){
     for(let i of this.habitos){
       if(i.status){
-        this.usuario.habito.push(i.id)
+        this.usuario.habitos.push(i.id)
       }else{
       }
     }
