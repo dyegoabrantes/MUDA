@@ -1,3 +1,5 @@
+
+
 import { Http } from '@angular/http';
 import { BrowserModule } from '@angular/platform-browser';
 import { ErrorHandler, NgModule } from '@angular/core';
@@ -16,7 +18,7 @@ import { DesafioModalPage } from './../pages/desafio-modal/desafio-modal';
 import { AlmanaquePage } from './../pages/almanaque/almanaque'
 import { MudaPage } from './../pages/muda/muda';
 import { CadastraMudaPage } from '../pages/cadastra-muda/cadastra-muda';
-
+import { MundoPage } from './../pages/mundo/mundo';
 import { StatusBar } from '@ionic-native/status-bar';
 import { SplashScreen } from '@ionic-native/splash-screen';
 import { AuthService } from '../providers/auth-service/auth-service';
@@ -34,7 +36,7 @@ import { HttpModule } from '@angular/http';
     CadastroPage,
     LoginPage,
     RegistroHabitosPage,
-
+    MundoPage,
     AlmanaquePage,
 
     MudaPage,
@@ -59,7 +61,8 @@ import { HttpModule } from '@angular/http';
     RegistroHabitosPage,
     AlmanaquePage,
     MudaPage,
-    CadastraMudaPage
+    CadastraMudaPage,
+    MundoPage
   ],
   providers: [
     AppService,

@@ -1,15 +1,17 @@
 page-cadastra-muda {
 
 }
-.container-muda-img{
+.container-muda-img1{
     width: 100px;
     height: 180px;
     border-radius: 50%; 
-    margin-left: 50px; 
+    position: relative;
     margin-top: 7px; 
     background-color: #fff;
+    display: block;
+    margin: auto;
 }
-.container-nome-muda{
+.container-nome-muda1{
     border-radius: 50px; 
     height: 50px;
 }
@@ -20,4 +22,14 @@ page-cadastra-muda {
     position: absolute;
     bottom: 12%;
     width: 90%;
+}
+.container-muda1{
+    width: 190px;
+    height: 190px;
+    background-color: #fff;
+    position: absolute;
+    top: 30%;
+    right: 50%;
+    transform: translate(50%,0); 
+    border-radius: 50%; 
 }
