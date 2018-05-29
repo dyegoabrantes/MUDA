@@ -51,7 +51,7 @@ export class DesafiosPage {
       //   }
       // }
     }
-
+  }
 
   ionViewDidLoad() {
     this.carrega();

@@ -15,7 +15,12 @@
 
 <ion-content padding>
   <div class="container-muda">
-      <ion-img class="container-muda-img" src="../../assets/imgs/muda ani 5.gif"></ion-img>
+      <ion-img id="container-muda-img" 
+      [class.container-image-muda-1] = "aux1"
+      [class.container-image-muda-2] = "aux2"
+      [class.container-image-muda-3] = "aux3" 
+      [class.container-image-muda-4] = "aux4"
+       [class.container-image-muda-5] = "aux5"></ion-img>
   </div>
   <div class="container-muda-nome">
       <p>Nome muda</p>
@@ -26,19 +31,20 @@
               <p>Indice Geral</p>
           </div>
           <div>
-              <p>{{muda.indiceGeral}}</p>
+              <p>{{muda.pontos}}</p>
               <p>Experiencia</p>
           </div>
           <div>
-              <p>{{muda.indiceGeral}}</p>
+              <p>{{emblemas.length}}</p>
               <p>Numero emblemas</p>
           </div>
       </div>      
   </div>
-  <div class="container-emblemas">
-      <div class="emblemas" > 
-          <ion-img class="container-emblema-img" src="../../assets/imgs/EmblemasMuda.png"></ion-img>
-      </div>
-
-  </div>
+  <ion-list  class="container-emblemas" >
+        <ion-item class="emblemas" *ngFor="let emblema of emblemas"> 
+                <p class="a">level {{ emblema.nivel }}</p>
+                <ion-img class="container-emblema-img" ></ion-img>
+                
+        </ion-item>
+  </ion-list>
 </ion-content>

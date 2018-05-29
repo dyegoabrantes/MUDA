@@ -19,7 +19,8 @@ import { AuthService } from '../providers/auth-service/auth-service';
 import { DesafioService } from './../pages/desafios/desafios.service';
 import { HttpModule } from '@angular/http';
 import { SocialSharing } from '@ionic-native/social-sharing';
-
+import { MundoPage } from './../pages/mundo/mundo';
+import { MundoPageModule } from './../pages/mundo/mundo.module';
 
 @NgModule({
   declarations: [
@@ -37,7 +38,8 @@ import { SocialSharing } from '@ionic-native/social-sharing';
     RegistroHabitosPageModule,
     AlmanaquePageModule,
     MudaPageModule,
-    CadastraMudaPageModule
+    CadastraMudaPageModule,
+    MundoPageModule
   ],
   bootstrap: [IonicApp],
   entryComponents: [
