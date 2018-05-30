@@ -1,7 +1,13 @@
 import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams, ViewController } from 'ionic-angular';
-import { DesafiosPage } from '../desafios/desafios';
-import { DesafioService } from './../desafios/desafios.service'
+import { DesafioService } from './../desafios/desafios.service';
+import { AuthService } from './../../providers/auth-service/auth-service'
+import { HttpClient } from '@angular/common/http';
+import { Http, Response } from '@angular/http';
+import {Observable} from 'rxjs/Observable';
+import 'rxjs/add/observable/throw';
+import 'rxjs/add/operator/map';
+import 'rxjs/add/operator/catch';
 
 @IonicPage()
 @Component({
@@ -22,10 +28,12 @@ export class DesafioModalPage {
 	longitude?: String = this.navParams.get('longitude');
   latitude?: String = this.navParams.get('latitude');
   
-  constructor(public navCtrl: NavController,
+  constructor(public http: Http,
+              public navCtrl: NavController,
               public navParams: NavParams,
               public viewCtrl: ViewController,
               public desafioService: DesafioService,
+              public authService: AuthService,
             ) {}
 
   
@@ -34,7 +42,6 @@ export class DesafioModalPage {
     let obj = this.desafioService.desafios.find(function (obj) { return obj.id === id }); 
     obj.status = 'notyet';
     this.closeModal();
-    console.dir(obj)
   }
   closeModal() {
     this.viewCtrl.dismiss();
@@ -43,8 +50,21 @@ export class DesafioModalPage {
 
   aceitarDesafio(){
     let id = this.id;
-    let obj = this.desafioService.desafios.find(function (obj) { return obj.id === id });
-    obj.status="pending";
+    let desafio = this.desafioService.desafios.find(function (desafio) { return desafio.id === id });
+    desafio.status="pending";
+    let user = this.authService.currentUser;
+    if(user.desafiosId){
+      user.desafiosId.push({desafioId:desafio.id,status:desafio.status});
+    }else{
+      user["desafiosId"] = [{desafioId:desafio.id,status:desafio.status}];
+    };
+    this.authService.updateDesafio(user).subscribe(response => {
+      console.log(response);
+      this.closeModal();
+    },
+      error => {
+        console.log(error);
+      });
   };
 
   ionViewDidLoad() {
