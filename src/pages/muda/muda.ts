@@ -1,7 +1,7 @@
 import { Emblema } from './../../app/_models/emblema';
 import { Storage } from '@ionic/storage';
 import { Component } from '@angular/core';
-import { IonicPage, NavController, NavParams, MenuController } from 'ionic-angular';
+import { IonicPage, NavController, NavParams, MenuController, Menu } from 'ionic-angular';
 import { Muda } from './muda.model';
 
 
@@ -15,7 +15,10 @@ export class MudaPage {
   emblemas: Emblema[] =  [
     new Emblema (1 ,{},1,0,1)
   ]
-  constructor(public navCtrl: NavController, public navParams: NavParams, public storage: Storage) {
+  constructor(public navCtrl: NavController,
+              public navParams: NavParams,
+              public storage: Storage,
+              public menu: MenuController,) {
   }
   aux1: boolean
   aux2: boolean
@@ -23,6 +26,7 @@ export class MudaPage {
   aux4: boolean
   aux5: boolean
   ionViewDidLoad() {
+    this.menu.swipeEnable(true);
     this.storage.get('nome-muda').then((val) => {
       this.muda.nome = val
     });
