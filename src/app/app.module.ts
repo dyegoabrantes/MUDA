@@ -13,6 +13,8 @@ import { DesafioModalPageModule } from './../pages/desafio-modal/desafio-modal.m
 import { AlmanaquePageModule } from './../pages/almanaque/almanaque.module'
 import { MudaPageModule } from './../pages/muda/muda.module';
 import { CadastraMudaPageModule } from '../pages/cadastra-muda/cadastra-muda.module';
+import { MundoPageModule } from '../pages/mundo/mundo.module';
+
 import { StatusBar } from '@ionic-native/status-bar';
 import { SplashScreen } from '@ionic-native/splash-screen';
 import { AuthService } from '../providers/auth-service/auth-service';
@@ -37,9 +39,9 @@ import { MundoPageModule } from './../pages/mundo/mundo.module';
     LoginPageModule,
     RegistroHabitosPageModule,
     AlmanaquePageModule,
-    MudaPageModule,
-    CadastraMudaPageModule,
-    MundoPageModule
+    MundoPageModule,
+    CadastraMudaPageModule
+
   ],
   bootstrap: [IonicApp],
   entryComponents: [

@@ -48,7 +48,6 @@ export class MundoPage {
       this.none1 = true
       this.none3 = false
     }
-
   }
 
 }

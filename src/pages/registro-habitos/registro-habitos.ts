@@ -92,7 +92,6 @@ export class RegistroHabitosPage {
     this.authService.cadastraUsuario(this.usuario)
     .subscribe(response => {
       if (response) {
-        console.log(response)
       } else {
         this.navCtrl.setRoot(CadastraMudaPage);
       }

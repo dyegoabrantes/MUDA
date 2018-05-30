@@ -86,9 +86,4 @@ export class DesafioService{
             "./../../assets/imgs/Pouca água.png",
         ),
     ];
-
-    desafiosConcluidos = [];
-    getDesafiosConcluidos(desafios){
-        this.desafiosConcluidos=desafios;
-    }
 }

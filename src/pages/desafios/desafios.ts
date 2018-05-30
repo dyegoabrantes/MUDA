@@ -1,9 +1,9 @@
 import { Component } from '@angular/core';
-import { IonicPage, NavController, ModalController, Platform, NavParams, ViewController  } from 'ionic-angular';
+import { IonicPage, NavController, ModalController, NavParams  } from 'ionic-angular';
 import { Desafio } from '../../app/_models/desafio';
 import { DesafioService } from './desafios.service';
-import { DesafioModalPage } from './../desafio-modal/desafio-modal';
 import { AuthService } from './../../providers/auth-service/auth-service';
+import { DesafioModalPage } from './../desafio-modal/desafio-modal';
 
 @IonicPage()
 @Component({
@@ -15,47 +15,36 @@ export class DesafiosPage {
   constructor(public navCtrl: NavController,
               public navParams: NavParams,
               public desafioService: DesafioService,
-              private auth: AuthService,
-              public modalCtrl: ModalController) {}
-  desafiosDisponiveis: Desafio[]= [];
-  desafiosPendentes: Desafio[] = [];
-  desafiosConcluidos: Desafio[] = [];
+              public modalCtrl: ModalController,
+              public authService: AuthService) {}
 
   openModal(desafio) {
-    console.log(desafio)
     let myModal = this.modalCtrl.create(DesafioModalPage, desafio);
     myModal.present();
   }
     
+  desafios = [];
 
 
   carrega() {
-    // console.log(this.auth.currentUser.desafiosId.length)
-    for (let i = 0; i < this.desafioService.desafios.length; i++) {
-      console.log(this.desafioService.desafios[i].titulo)
-      let titulo = this.desafioService.desafios[i].titulo;
-      this.desafiosDisponiveis.push(this.desafioService.desafios[i]);
-      // if(this.auth.currentUser.desafiosId.length>0){
-      //   for (let courrentUserId = 0; courrentUserId < this.auth.currentUser.desafiosId.length; courrentUserId++) {
-      //     if (this.desafioService.desafios[i].id == this.auth.currentUser.desafiosId[courrentUserId]){
-      //       if (this.desafioService.desafios[i].status == "pending"){
-      //         this.desafiosPendentes.push(this.desafioService.desafios[i]);
-      //       }else{
-      //         if(this.desafioService.desafios[i].status=="done"){
-      //           this.desafiosConcluidos.push(this.desafioService.desafios[i]);
-      //         }else{
-      //           this.desafiosDisponiveis.push(this.desafioService.desafios[i]);
-      //         }
-      //       }
-      //     }
-      //   }
-      // }
+    this.desafios=this.desafioService.desafios;
+    console.log(this.desafios);
+    if(this.authService.currentUser.desafiosId){
+      if(this.authService.currentUser.desafiosId.length>0){
+        for(let i =0;i<this.desafios.length;i++){
+          for(let e =0;e<this.authService.currentUser.desafiosId.length;e++){
+            console.log(this.authService.currentUser.desafiosId[e].desafioId,this.desafios[i].desafioId)
+            if (this.authService.currentUser.desafiosId[e].desafioId==this.desafios[i].id){
+              this.desafios[i].status=this.authService.currentUser.desafiosId[e].status;
+            }
+          }
+        }
+      }
     }
   }
 
   ionViewDidLoad() {
     this.carrega();
-    this.desafioService.getDesafiosConcluidos(this.desafiosConcluidos);
-  }
+  };
 
 }
