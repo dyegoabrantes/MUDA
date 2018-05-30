@@ -14,25 +14,14 @@
 
 
 <ion-content padding>
-    <div class="container-muda">
-        <ion-img class="container-munda-img" ></ion-img>
+    <h1>Mundo</h1>
+    <div class="container-mundo">     
+        <ion-img class="container-mundo-img" [class.container-mundo-img2] = "prox" [class.container-mundo-img3] = "prox2"></ion-img>
     </div>
-    <div class="container-munda-nome">
-        <p>Nome muda</p>
-        <!-- <h5>{{muda.nome}}</h5> -->
-        <div class="container-munda-ele">
-            <!-- <div>
-                <p>{{muda.indiceGeral}}</p>
-                <p>Indice Geral</p>
-            </div>
-            <div>
-                <p>{{muda.indiceGeral}}</p>
-                <p>Experiencia</p>
-            </div>
-            <div>
-                <p>{{muda.indiceGeral}}</p>
-                <p>Numero emblemas</p>
-            </div> -->
-        </div>      
+    <div class="container-mundo-texto">
+        <p [class.container-texto-avi] = "none1">O nosso planeta atual <b>ainda não sofre de graves problemas</b> causados pelos impactos ambientais. 
+            Mas, caso todos não contribuam para que tais impactos sejam evitados tudo pode piorar.</p>
+        <p [class.container-texto-avi] = "none2">O nosso planeta está com <b>sérios problemas</b> devido a falta de mudança de hábitos das pessoas.</p>
+        <p [class.container-texto-avi] = "none3">O nosso planeta atual <b>pode ter uma perspectiva de futuro</b> se todos continuarem com o compromisso de mudança em prol de reduzir os impactos no meio ambiente.</p>
     </div>
   </ion-content>
