@@ -1,16 +1,37 @@
 page-muda {
 
 }
-.container-muda-img{
+#container-muda-img{
     width: 100px;
     height: 180px;
-    background-color: #fff;
+
+    background-color: #fff00000;
     position: absolute;
     right: 50%;
     transform: translate(50%,0);
     margin-top: 20px;
-}
 
+}
+.container-image-muda-3{
+    background-image: url("../../assets/imgs/muda ani 3.gif");
+    background-size: 100px;
+}
+.container-image-muda-1{
+    background-image: url("../../assets/imgs/muda ani 1.gif");
+    background-size: 100px;
+}
+.container-image-muda-2{
+    background-image: url("../../assets/imgs/muda ani 2.gif");
+    background-size: 100px;
+}
+.container-image-muda-4{
+    background-image: url("../../assets/imgs/muda ani 4.gif");
+    background-size: 100px;
+}
+.container-image-muda-5{
+    background-image: url("../../assets/imgs/muda ani 5.gif");
+    background-size: 100px;
+}
 .container-muda{
     width: 110%;
     height: 200px;
@@ -18,14 +39,21 @@ page-muda {
     position: absolute;
     top: 0;
     right: 0;
-  
+    background-image: url("../../assets/imgs/fundo-de-muda.jpg");
+    background-size: 95%;
+    background-position-y: -50px;
+    background-position-x: 30px;
+    background-repeat: no-repeat;
+
  }
 .container-muda-nome{
     margin-top: 15px; 
     background-color: #278989;
     box-shadow: 0 3px 7px #424242;
     position: absolute;
-    top: 35%;
+    top:20%;
+    right: 50%;
+    transform: translate(50%,50%);
     width: 285px;
     height: 130px;
     border-radius: 10px;
@@ -52,19 +80,34 @@ page-muda {
     padding-left: 10px; 
 }
 .container-emblema-img{
-    width: 70px;
-    height: 70px;
+    width: 80px;
+    height: 80px;
     background-color: #fff;
-    padding-top: 18px; 
-    padding-left: 15px; 
     border-radius: 20px; 
+    background-image: url("../../assets/imgs/EmblemasMuda.png");
+    background-size: 100%; 
+    background-repeat: no-repeat;
+    background-position-y: 15px;
 }
 .container-emblemas{
     position: absolute;
     top: 70%;
-    width: 85px;
-    height: 85px;
-    background-color: #fff;
+    right: 50%;
+    transform: translate(50%,0%);
+    background-color: #fff00000;
+    box-shadow: 0 3px 7px #fff00000;
     border-radius: 20px; 
-    box-shadow: 0 3px 7px #424242;
+    display: grid;
+    grid-template-columns: auto auto ;
+    grid-column-gap: 5px;
+}
+.emblemas{
+    border-radius: 20px; 
+    
+}
+.a{
+    color: #278989;
+    height: 15px;
+    text-align: center;
+    z-index: 15;
 }
