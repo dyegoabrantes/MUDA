@@ -20,30 +20,34 @@ export class AuthService {
     if (credentials.email === null || credentials.password === null) {
       return Observable.throw("Nenhum campo pode ficar vazio");
     } else {
-      console.log('inicia login');      
       let url = "/api/login";
       return this.http.post(url,credentials)
       .map((response: Response) => {
-        console.log(response);
-      })
-      .catch((error: Response) => Observable.throw(error))
-
+        this.currentUser = response.json();
+        return ('deu bom');
+      }).catch((error: Response) => Observable.throw(error));
     }
   }
 
   public cadastraUsuario(usuario:Usuario){
     let url = "api/usuarios";
-    console.log(usuario)
       return this.http.post(url, usuario)
       .map((response: Response) => {
-        
-        console.log(response.json())
         })
       .catch((error: Response) => Observable.throw(error))
   }
 
   public getUserInfo() : Usuario {
     return this.currentUser;
+  }
+
+  public updateDesafio(user){
+    let url = '/api/usuarios/'+this.currentUser._id;
+    return this.http.put(url,user)
+      .map((response: Response) => {
+        console.log(response)
+        return ('deu bom');
+      }).catch((error: Response) => Observable.throw(error));
   }
 
   public logout() {

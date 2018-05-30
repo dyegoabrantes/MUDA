@@ -16,7 +16,6 @@ export class CadastraMudaPage {
   }
 
   ionViewDidLoad() {
-    console.log('ionViewDidLoad CadastraMudaPage');
     this.storage.clear();
   }
   cadasNome(){

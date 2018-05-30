@@ -16,13 +16,9 @@
 </ion-header>
 
 <ion-content  padding>
-    <ion-card>
-        <ion-card-content>
-            Por favor, selecionar hábitos que você não costuma praticar
-        </ion-card-content>
-      </ion-card>
-      <ion-card *ngFor="let habito of habitos">
-          <ion-card-header >
+           <p class = "card card--habito"> Por favor, selecionar hábitos que você não costuma praticar.</p> 
+      <ion-card  *ngFor="let habito of habitosCar" >
+          <ion-card-header>
               {{ habito.titulo }}
           </ion-card-header>
           <ion-card-content>
@@ -30,5 +26,11 @@
               <ion-checkbox [(ngModel)]="habito.status" (click)=statusHabito(habito)> </ion-checkbox>
           </ion-card-content>
         </ion-card>
-    <button ion-button raund class="btn-habito" outline (click)="cadastrar()">Confirmar</button>
+        <div class="progress">
+                <div [ngClass]="['progress-1']"></div>
+                <div class="progress-2" [class.progress-1]="prog"></div>
+                <div class="progress-3" [class.progress-1]="prog2"></div>
+            </div>
+    <button ion-button round class="btn-prox" (click) ="carrega()" [class.btn-none] = "prox" >Proximo</button><button ion-button raund class="btn-habito" [disabled] = "valid" outline (click)="cadastrar()" (click)="inserirUsuario()">Confirmar</button>
+
 </ion-content>

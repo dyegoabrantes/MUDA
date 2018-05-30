@@ -94,7 +94,6 @@ export class CadastroPage {
           this.storage.set('nome', nome.value);
           this.storage.set('email', usuario_email1.value);
           this.storage.set('senha', senha1.value);
-          console.log('vamos lá')
           this.navController.setRoot(RegistroHabitosPage);     
         }
       }else{
