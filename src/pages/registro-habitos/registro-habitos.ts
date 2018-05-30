@@ -23,7 +23,7 @@ export class RegistroHabitosPage {
       public storage: Storage
     ) {
   }
-  usuario: Usuario = new Usuario ('','','',[],[])
+  usuario: Usuario = new Usuario ('','','',[],[],[],0,0)
   habitosCar = []
   cont = 0
   prog=false

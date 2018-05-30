@@ -10,6 +10,7 @@ export class FooModule {
 
 @Injectable()
 export class AppService{
+
     constructor(){}
 
   

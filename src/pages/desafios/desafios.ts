@@ -25,6 +25,7 @@ export class DesafiosPage {
     
   desafios = [];
 
+
   carrega() {
     this.desafios=this.desafioService.desafios;
     console.log(this.desafios);

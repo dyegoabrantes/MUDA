@@ -14,13 +14,15 @@ import { AlmanaquePageModule } from './../pages/almanaque/almanaque.module'
 import { MudaPageModule } from './../pages/muda/muda.module';
 import { CadastraMudaPageModule } from '../pages/cadastra-muda/cadastra-muda.module';
 import { MundoPageModule } from '../pages/mundo/mundo.module';
+
 import { StatusBar } from '@ionic-native/status-bar';
 import { SplashScreen } from '@ionic-native/splash-screen';
 import { AuthService } from '../providers/auth-service/auth-service';
 import { DesafioService } from './../pages/desafios/desafios.service';
 import { HttpModule } from '@angular/http';
 import { SocialSharing } from '@ionic-native/social-sharing';
-
+import { MundoPage } from './../pages/mundo/mundo';
+import { MundoPageModule } from './../pages/mundo/mundo.module';
 
 @NgModule({
   declarations: [
@@ -37,9 +39,9 @@ import { SocialSharing } from '@ionic-native/social-sharing';
     LoginPageModule,
     RegistroHabitosPageModule,
     AlmanaquePageModule,
-    MudaPageModule,
     MundoPageModule,
     CadastraMudaPageModule
+
   ],
   bootstrap: [IonicApp],
   entryComponents: [
