@@ -39,6 +39,7 @@ import { MundoPageModule } from './../pages/mundo/mundo.module';
     LoginPageModule,
     RegistroHabitosPageModule,
     AlmanaquePageModule,
+    MudaPageModule,
     MundoPageModule,
     CadastraMudaPageModule
 
