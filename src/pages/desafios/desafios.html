@@ -13,31 +13,15 @@
 <ion-content padding>
 
   <ion-list>
-    <ion-item *ngFor="let desafio of desafiosPendentes">
+    <ion-item *ngFor="let desafio of desafios">
       <ion-thumbnail item-start>
         <img src={{desafio.arquivoA}}>
       </ion-thumbnail>
       <p class="titulo">{{desafio.titulo}}</p>
       <p class="categoria">{{desafio.categoria}}</p>
-      <p class="status">{{desafio.status}}</p>
-      <button (click)="openModal(desafio)" ion-button item-end>Ver Desafio</button>
-    </ion-item>
-    <ion-item *ngFor="let desafio of desafiosDisponiveis; let i = index">
-      <ion-thumbnail item-start>
-        <img src={{desafio.arquivoA}}>
-      </ion-thumbnail>
-      <p class="titulo">{{desafio.titulo}}</p>
-      <p class="categoria">{{desafio.categoria}}</p>
-      <p class="status">{{desafio.status}}</p>
-      <button (click)="openModal(desafio)" ion-button item-end>Ver Desafio</button>
-    </ion-item>
-    <ion-item *ngFor="let desafio of desafiosConcluidos">
-      <ion-thumbnail item-start>
-        <img src={{desafio.arquivoA}}>
-      </ion-thumbnail>
-      <p class="titulo">{{desafio.titulo}}</p>
-      <p class="categoria">{{desafio.categoria}}</p>
-      <p class="status">{{desafio.status}}</p>
+      <p *ngIf="desafio.status=='notyet'" class="status">Desafio Disponível</p>
+      <p *ngIf="desafio.status=='pending'" class="status">Desafio Pendente</p>
+      <p *ngIf="desafio.status=='done'" class="status">Desafio Concluído</p>
       <button (click)="openModal(desafio)" ion-button item-end>Ver Desafio</button>
     </ion-item>
   </ion-list>

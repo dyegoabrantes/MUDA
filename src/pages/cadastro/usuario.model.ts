@@ -4,10 +4,11 @@ export class Usuario {
         public email: string,
         public senha: string,
         public habitos: number[],
-        public desafiosId: number[],
         public emblemas= [],
+        public desafiosId?: [{desafioId: Number, status: String}],
         public logitude?: number,
-        public latitude?: number
+        public latitude?: number,
+        public _id?: string
 
     ){}
 }
