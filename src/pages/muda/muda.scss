@@ -1,45 +1,112 @@
 page-muda {
 
 }
-.container-muda-img{
+#container-muda-img{
     width: 100px;
     height: 180px;
-    border-radius: 50%; 
-    margin-left: 50px; 
-    margin-top: 7px; 
-    background-color: #fff;
+
+    background-color: #fff00000;
+    position: absolute;
+    right: 50%;
+    transform: translate(50%,0);
+    margin-top: 20px;
+
 }
-// @keyframes example {
-//     25% {
-//         border-right: 2px solid #ffe989; 
-//     }
-//     50% {
-//         border-bottom: 2px solid #ffe989;
-//     }
-//     75% {
-//         border-left: 2px solid #ffe989;
-//     }
-//     100% {
-//         border-top: 2px solid #ffe989;
-//     }
-// }
+.container-image-muda-3{
+    background-image: url("../../assets/imgs/muda ani 3.gif");
+    background-size: 100px;
+}
+.container-image-muda-1{
+    background-image: url("../../assets/imgs/muda ani 1.gif");
+    background-size: 100px;
+}
+.container-image-muda-2{
+    background-image: url("../../assets/imgs/muda ani 2.gif");
+    background-size: 100px;
+}
+.container-image-muda-4{
+    background-image: url("../../assets/imgs/muda ani 4.gif");
+    background-size: 100px;
+}
+.container-image-muda-5{
+    background-image: url("../../assets/imgs/muda ani 5.gif");
+    background-size: 100px;
+}
 .container-muda{
-    width: 200px;
+    width: 110%;
     height: 200px;
-    border-radius: 50%; 
     background-color: #fff;
     position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%,-50%);
-    animation-name: example;
-    animation-duration: 4s;
-    animation-iteration-count: infinite;
-}
+    top: 0;
+    right: 0;
+    background-image: url("../../assets/imgs/fundo-de-muda.jpg");
+    background-size: cover;
+  
+    background-repeat: no-repeat;
+
+ }
 .container-muda-nome{
     margin-top: 15px; 
-    border: 2px solid #fff;
+    background-color: #278989;
+    box-shadow: 0 3px 7px #424242;
+    position: absolute;
+    top:20%;
+    right: 50%;
+    transform: translate(50%,50%);
+    width: 285px;
+    height: 130px;
+    border-radius: 10px;
+}
+.container-muda-nome h5{
+    font-size: 16px;
+    padding-top: 0; 
+    padding-bottom: 0;
+    text-align: center;
 }
 .container-muda-nome p{
-    font-size: 16px;
+    font-size: 10px;
+    text-align: center;
+}
+.container-muda-ele{
+    width: 210px;
+    margin: auto;
+}
+.container-muda-ele p {
+    font-size: 8px;
+}
+.container-muda-ele div{
+    float: left;
+    padding-left: 10px; 
+}
+.container-emblema-img{
+    width: 80px;
+    height: 80px;
+    background-color: #fff;
+    border-radius: 20px; 
+    background-image: url("../../assets/imgs/EmblemasMuda.png");
+    background-size: 100%; 
+    background-repeat: no-repeat;
+    background-position-y: 15px;
+}
+.container-emblemas{
+    position: absolute;
+    top: 70%;
+    right: 50%;
+    transform: translate(50%,0%);
+    background-color: #fff00000;
+    box-shadow: 0 3px 7px #fff00000;
+    border-radius: 20px; 
+    display: grid;
+    grid-template-columns: auto auto ;
+    grid-column-gap: 5px;
+}
+.emblemas{
+    border-radius: 20px; 
+    
+}
+.a{
+    color: #278989;
+    height: 15px;
+    text-align: center;
+    z-index: 15;
 }

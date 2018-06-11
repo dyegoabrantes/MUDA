@@ -1,8 +1,9 @@
 import { CadastroPage } from './../cadastro/cadastro';
 import { Component } from '@angular/core';
-import { IonicPage, NavController, NavParams, LoadingController, AlertController, Loading, } from 'ionic-angular';
+import { IonicPage, NavController, NavParams, LoadingController, AlertController, Loading, MenuController, Menu, } from 'ionic-angular';
 import { AuthService } from './../../providers/auth-service/auth-service';
 import { MudaPage } from '../muda/muda';
+import { Storage } from '@ionic/storage';
 
 
 @IonicPage()
@@ -13,7 +14,6 @@ import { MudaPage } from '../muda/muda';
 export class LoginPage {
 
   loading: Loading;
-  
   registerCredentials = { email: '', password: '' };
 
 
@@ -22,32 +22,18 @@ export class LoginPage {
               private authService: AuthService,
               private alertCtrl: AlertController,
               private loadingCtrl: LoadingController,
+              public menu: MenuController,
+              public storage: Storage
               ) {}
               
   public login(){
     this.showLoading()
     this.authService.login(this.registerCredentials).subscribe(permissao => {
-      if (permissao) {
-        console.log(permissao)
-        this.showError(permissao.error);
-      } else {
-        this.navCtrl.setRoot(MudaPage);
-      }
+      this.navCtrl.setRoot(MudaPage);
     },
       error => {
-        this.showError(error);
+        this.showError(error._body);
       });
-    // this.authService.login(this.registerCredentials).subscribe(permition => {
-    //   if (permition) {
-    //     console.log(permition)
-    //     this.showError(permition.error);
-    //   } else {
-    //     this.navCtrl.setRoot(MudaPage);
-    //   }
-    // },
-    //   error => {
-    //     this.showError(error);
-    //   });
   }
   validado: boolean = false;
   showLoading() {
@@ -72,8 +58,11 @@ export class LoginPage {
   createAccount(){
     this.navCtrl.setRoot(CadastroPage);
   }
+  
 
   ionViewDidLoad() {
+    this.menu.swipeEnable(false);
+    
   }
 
 }

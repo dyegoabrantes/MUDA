@@ -12,32 +12,30 @@ import { Http, Response } from '@angular/http';
 @Injectable()
 export class AuthService {
   
-  constructor(private http:Http){}
+  constructor(private http:Http,
+              ){}
 
   currentUser: Usuario;
+  token = "";
 
   public login(credentials) {
     if (credentials.email === null || credentials.password === null) {
       return Observable.throw("Nenhum campo pode ficar vazio");
     } else {
-      console.log('inicia login');      
       let url = "/api/login";
       return this.http.post(url,credentials)
       .map((response: Response) => {
-        console.log(response);
-      })
-      .catch((error: Response) => Observable.throw(error))
-
+        this.token = response.json().token;
+        this.currentUser= response.json().data;
+        return (this.currentUser);
+      }).catch((error: Response) => Observable.throw(error));
     }
   }
 
   public cadastraUsuario(usuario:Usuario){
     let url = "api/usuarios";
-    console.log(usuario)
       return this.http.post(url, usuario)
       .map((response: Response) => {
-        
-        console.log(response.json())
         })
       .catch((error: Response) => Observable.throw(error))
   }
@@ -46,9 +44,19 @@ export class AuthService {
     return this.currentUser;
   }
 
+  public updateDesafio(user){
+    let url = '/api/usuarios/'+this.currentUser._id;
+    return this.http.put(url,{user:user,token:this.token})
+      .map((response: Response) => {
+        console.log(response)
+        return ('deu bom');
+      }).catch((error: Response) => Observable.throw(error));
+  }
+
   public logout() {
+    this.currentUser = null;
+    this.token= "";
     return Observable.create(observer => {
-      this.currentUser = null;
       observer.next(true);
       observer.complete();
     });

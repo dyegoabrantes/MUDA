@@ -1,3 +1,4 @@
+
 import { Component, ViewChild } from '@angular/core';
 import { Nav, Platform } from 'ionic-angular';
 import { StatusBar } from '@ionic-native/status-bar';
@@ -10,15 +11,15 @@ import { DesafiosPage } from '../pages/desafios/desafios';
 import { AlmanaquePage } from '../pages/almanaque/almanaque';
 import { MudaPage } from './../pages/muda/muda';
 import{ CadastraMudaPage } from './../pages/cadastra-muda/cadastra-muda';
-
+import { MundoPage } from './../pages/mundo/mundo';
 
 @Component({
   templateUrl: 'app.html'
 })
 export class MyApp {
   @ViewChild(Nav) nav: Nav;
-  rootPage: any = LoginPage;
 
+  rootPage: any = RegistroHabitosPage;
 
   pages: Array<{title: string, component: any}>;
 
@@ -33,6 +34,7 @@ export class MyApp {
       { title: 'Registro de hábitos', component: RegistroHabitosPage },
       { title: 'Desafios', component: DesafiosPage },
       { title: 'Almanaque', component: AlmanaquePage },
+      { title: 'Mundo', component: MundoPage },
       { title: 'Cadastra muda', component: CadastraMudaPage }
     ];
 
