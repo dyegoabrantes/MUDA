@@ -30,9 +30,12 @@
     </div>
   </div>
   <div class="button-Row" padding  text-center>
-    <button *ngIf="this.status  == 'notyet'" ion-button round align small color="default" (click)="closeModal()">Agora Não</button>
-    <button *ngIf="this.status  == 'notyet'" ion-button (click)="aceitarDesafio()" round small color="secondary">Aceitar Desafio</button>
-    <button *ngIf="this.status  == 'pending'" ion-button round align small color="default" (click)="closeModal()">Voltar</button>
+    <button *ngIf="this.status  == 'notyet'" ion-button round align small color="default" (click)="closeModal()">Voltar</button>
+    <button *ngIf="this.status  == 'notyet'" ion-button (click)="aceitarDesafio()" round small color="dark">Aceitar Desafio</button>
+    <button *ngIf="this.status  == 'pending'" ion-button round align small color="s-light" (click)="closeModal()">Voltar</button>
     <button *ngIf="this.status  == 'pending'" ion-button round small color="danger" (click)="cancelaDesafio()">Cancelar desafio</button>
+  </div>
+  <div class="button-Row" padding  text-center>
+    <button *ngIf="this.status  == 'pending'" ion-button full round large align small color="success" (click)="concluirDesafio()">Concluir</button>
   </div>
 </ion-content>
