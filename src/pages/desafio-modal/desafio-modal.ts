@@ -49,6 +49,10 @@ export class DesafioModalPage {
      });
   }
 
+  concluirDesafio(){
+    
+  }
+
   cancelaDesafio(){
     let id = this.id;
     let desafio = this.desafioService.desafios.find(function (obj) { return obj.id === id }); 
