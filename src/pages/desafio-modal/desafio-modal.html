@@ -9,7 +9,10 @@
 
 <ion-content>
   <ion-card>
-    <img src="{{'./../../../assets/imgs/' + this.titulo + '.png'}}"/>
+    <img *ngIf="!this.location" src="{{'./../../../assets/imgs/' + this.titulo + '.png'}}"/>
+    <div *ngIf="this.location">
+      
+    </div>
     <ion-card-content>
       <ion-card-title>
         {{titulo}}

@@ -8,6 +8,7 @@ import {Observable} from 'rxjs/Observable';
 import 'rxjs/add/observable/throw';
 import 'rxjs/add/operator/map';
 import 'rxjs/add/operator/catch';
+import { Geolocation } from '@ionic-native/geolocation';
 
 @IonicPage()
 @Component({
@@ -34,18 +35,42 @@ export class DesafioModalPage {
               public viewCtrl: ViewController,
               public desafioService: DesafioService,
               public authService: AuthService,
+              private geolocation: Geolocation,
             ) {}
 
+  location = false;
   
+  getLocation(){
+    this.geolocation.getCurrentPosition().then((resp) => {
+      console.log(resp.coords.latitude)
+      console.log(resp.coords.longitude)
+     }).catch((error) => {
+       console.log('Erro ao tentar encontrar a localização', error);
+     });
+  }
+
   cancelaDesafio(){
     let id = this.id;
-    let obj = this.desafioService.desafios.find(function (obj) { return obj.id === id }); 
-    obj.status = 'notyet';
-    this.closeModal();
+    let desafio = this.desafioService.desafios.find(function (obj) { return obj.id === id }); 
+    desafio.status = 'notyet';
+    let user = this.authService.currentUser;
+    var index = user.desafiosId.indexOf({desafioId:id,status:'pending'} );
+    if (index > -1) {
+    user.desafiosId.splice(index, 1);
+    }
+    this.authService.updateDesafio(user).subscribe(response => {
+      console.log(response);
+      this.closeModal();
+    },
+      error => {
+        console.log(error);
+      });
   }
+
   closeModal() {
     this.viewCtrl.dismiss();
   }
+
   desfioStatus = '';
 
   aceitarDesafio(){
@@ -68,6 +93,7 @@ export class DesafioModalPage {
   };
 
   ionViewDidLoad() {
+    this.getLocation();
     if (this.status == 'notyet'){
       this.desfioStatus ='Disponível';
     }else{
