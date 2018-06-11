@@ -12,8 +12,76 @@ module.exports.checar = function(req, res, next){
                 title: 'Não autenticado',
                 error: err
             });
+
+module.exports.efetuaLogin = function(req,res){
+    let pass = req.body.password;
+    let email = req.body.email;
+
+
+    let promise = Usuario.findOne({'email':email}).exec();
+    
+    promise.then(
+        (data) =>{ 
+            if (data){
+                if (data.senha == pass) {
+                    data.senha="";
+                    res.status(200).send(data);
+                }else{
+                    res.status(400).send('Verifique sua senha');
+                }
+            }else{
+                res.status(400).send('Email não cadastrado');
+            }
+        },
+        (erro) => {
+            res.status(500).json(erro);
         }
-        console.log('sucesso na checagem do token');
+    );
+}
+
+module.exports.getAllUsers = function(req,res) {
+    //ERRO na linha abaixo
+    if(users.length>0){
+        res.json(users);
+    }else{
+        res.status(404).send('Ainda não há usuários cadastrados')
+    };
+}
+
+module.exports.getUserById = function(req,res) {
+    let id = req.params.id;
+    let user = users.find(user=>(user.id==id));
+    if (user){
+        res.json(user);
+    }else{
+        res.status(404).send('Usuário não encontrado');
+    }
+}
+
+module.exports.newUser = function(req,res) {
+        let user = new  Usuario({
+        nome: req.body.nome,
+        email: req.body.email,
+        senha: req.body.senha,
+        habitos: req.body.habitos,
+        desafiosId: req.body.desafiosId,
+        emblemas: req.body.emblemas,
+        logitude: req.body.longitude,
+        latitude: req.body.latitude
+    });
+
+    let promise = Usuario.create(user);
+    promise.then(
+        (user) =>{
+            res.status(201).json({
+                nome: user.nome,
+                email: user.email
+            }
+            );
+        },
+        (erro) => {
+            res.status(500).json(erro);
+        }
         next();
     })
 }
