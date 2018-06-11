@@ -1,14 +1,13 @@
 let mongoose = require('mongoose');
 let Usuario = require('./../models/user.model');
 let bcrypt = require('bcrypt');
+let jwt = require('jsonwebtoken');
+
 
 module.exports.efetuaLogin = function(req,res){
     let pass = req.body.password;
     let email = req.body.email;
-
-
     let promise = Usuario.findOne({'email':email}).exec();
-    
     promise.then(
         (data) =>{ 
             if (data){
@@ -29,7 +28,6 @@ module.exports.efetuaLogin = function(req,res){
 }
 
 module.exports.getAllUsers = function(req,res) {
-    //ERRO na linha abaixo
     if(users.length>0){
         res.json(users);
     }else{
@@ -48,7 +46,7 @@ module.exports.getUserById = function(req,res) {
 }
 
 module.exports.newUser = function(req,res) {
-        let user = new  Usuario({
+    let user = new  Usuario({
         nome: req.body.nome,
         email: req.body.email,
         senha: req.body.senha,
@@ -62,15 +60,13 @@ module.exports.newUser = function(req,res) {
     let promise = Usuario.create(user);
     promise.then(
         (user) =>{
-            res.status(201).json({
-                nome: user.nome,
-                email: user.email
-            }
-            );
+            res.status(200).send(user);
         },
         (erro) => {
             res.status(500).json(erro);
-let jwt = require('jsonwebtoken');
+        }
+    )
+}
 
 module.exports.checar = function(req, res, next){
     console.log(req.body)
@@ -115,6 +111,7 @@ module.exports.deleteUserById = function(req,res) {
         res.status(404).send('Usuário não encontrado');
     }
 }
+
 module.exports.getUserById = function(req,res) {
     let id = req.params.id;
     let user = users.find(user=>(user.id==id));

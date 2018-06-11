@@ -18,10 +18,14 @@ module.exports = function(){
             type: String,
             required: true,
         },
+        userId: {
+            type: String,
+            require: true
+        },
         desafiosId: {
-            type: mongoose.Schema.ObjectId,
+            type: [String],
             ref: 'Desafios',
-            required: true,
+            required: false,
         }
     })
     return mongoose.model('muda', schema);

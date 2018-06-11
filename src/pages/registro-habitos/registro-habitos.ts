@@ -99,10 +99,7 @@ export class RegistroHabitosPage {
       error => {
         console.log(error);
       });
-    // .subscribe((response) => {
-    // },
-    // (error) => console.log(error));
-    // this.navCtrl.setRoot(CadastraMudaPage);
+
   }
 
   cadastrar(){

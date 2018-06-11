@@ -1,11 +1,10 @@
-import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
+import { Usuario } from './../../pages/cadastro/usuario.model';
 import {Observable} from 'rxjs/Observable';
 import 'rxjs/add/observable/throw';
-// import { Storage } from '@ionic/storage';
-import { Usuario } from './../../pages/cadastro/usuario.model';
 import 'rxjs/add/operator/map';
 import 'rxjs/add/operator/catch';
+import { HttpClient } from '@angular/common/http';
 import { Http, Response } from '@angular/http';
 
 
@@ -33,10 +32,12 @@ export class AuthService {
   }
 
   public cadastraUsuario(usuario:Usuario){
-    let url = "api/usuarios";
-      return this.http.post(url, usuario)
-      .map((response: Response) => {
-        })
+    let url = "api/novoUsuario";
+    return this.http.post(url, usuario)
+    .map((response: Response) => {
+      this.currentUser=response.json()
+      console.log(this.currentUser)
+    })
       .catch((error: Response) => Observable.throw(error))
   }
 
@@ -60,5 +61,22 @@ export class AuthService {
       observer.next(true);
       observer.complete();
     });
+  }
+
+  public salvaMuda(muda){
+    let url = '/api/mudas/';
+    return this.http.post(url,muda)
+      .map((response: Response) => {
+        return (response);
+      }).catch((error: Response) => Observable.throw(error));
+  }
+
+  public getMuda() {
+    let url = '/api/mudas/'+this.currentUser._id;
+    return this.http.get(url)
+      .map((response: Response) => {
+        console.log(response);
+        return (response);
+      }).catch((error: Response) => Observable.throw(error));
   }
 }

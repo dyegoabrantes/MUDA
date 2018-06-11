@@ -7,8 +7,6 @@ let jwt = require('jsonwebtoken');
 module.exports.efetuaLogin = function(req,res){
     let pass = req.body.password;
     let email = req.body.email;
-    console.log('chega aqui')
-
     let promise = Usuario.findOne({'email':email}).exec();
 
     promise.then(
@@ -50,14 +48,11 @@ module.exports.newUser = function(req,res) {
     let promise = Usuario.create(user);
     promise.then(
         (user) =>{
-            res.status(201).json({
-                nome: user.nome,
-                email: user.email
-            }
-            );
+            res.status(201).send(user);
         },
         (erro) => {
             res.status(500).json(erro);
+            console.log(erro)
         }
     )
 }

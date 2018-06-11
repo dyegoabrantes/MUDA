@@ -3,6 +3,7 @@ import { Storage } from '@ionic/storage';
 import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams, MenuController, Menu } from 'ionic-angular';
 import { Muda } from './muda.model';
+import { AuthService } from './../../providers/auth-service/auth-service'
 
 
 @IonicPage()
@@ -11,22 +12,45 @@ import { Muda } from './muda.model';
   templateUrl: 'muda.html',
 })
 export class MudaPage {
-  muda: Muda = new Muda ('',0,0,{},0,[])
+  muda: Muda = new Muda ('',0,0,{},'',[]);
   emblemas: Emblema[] =  [
     new Emblema (1 ,{},1,0,1)
   ]
   constructor(public navCtrl: NavController,
               public navParams: NavParams,
               public storage: Storage,
-              public menu: MenuController,) {
+              public menu: MenuController,
+              public auth: AuthService) {
   }
   aux1: boolean
   aux2: boolean
   aux3: boolean 
   aux4: boolean
   aux5: boolean
-  ionViewDidLoad() {
+  ionViewDidLoad() {    
     this.menu.swipeEnable(true);
+
+    this.auth.getMuda()
+    .subscribe(response => {
+      if (response) {
+        console.log(response._body);
+        // this.muda.nome = res.nome;
+        // this.muda.indiceGeral = response._body.indiceGeral;
+        // this.muda.pontos = response._body.pontos;
+        // this.muda.arquivo = response._body.arquivo;
+        // this.muda.userId = response._body._id;
+        // this.muda.desafiosId = response._body.desafiosId;
+        // this.muda._id = response._body._id;
+        console.log(this.muda);
+      } else {
+        console.log('erro');
+      }
+    },
+      error => {
+        console.log(error);
+      });
+
+
     this.storage.get('nome-muda').then((val) => {
       this.muda.nome = val
     });

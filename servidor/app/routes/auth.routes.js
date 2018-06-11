@@ -6,5 +6,6 @@ module.exports = function(app) {
     app.post("/api/login", controller.efetuaLogin)
 
     //ROTA PARA ADICIONAR NOVO USUÁRIO
-    app.post("/api/usuarios", controller.newUser);
+    app.post("/api/novoUsuario", controller.newUser);
+
 }
