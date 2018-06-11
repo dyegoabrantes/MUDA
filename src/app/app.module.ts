@@ -21,7 +21,6 @@ import { DesafioService } from './../pages/desafios/desafios.service';
 import { HttpModule } from '@angular/http';
 import { SocialSharing } from '@ionic-native/social-sharing';
 import { Geolocation } from '@ionic-native/geolocation';
-import { MundoPage } from './../pages/mundo/mundo';
 import { MundoPageModule } from './../pages/mundo/mundo.module';
 
 
