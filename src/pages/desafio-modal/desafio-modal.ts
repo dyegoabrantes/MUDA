@@ -54,10 +54,12 @@ export class DesafioModalPage {
     let desafio = this.desafioService.desafios.find(function (obj) { return obj.id === id }); 
     desafio.status = 'notyet';
     let user = this.authService.currentUser;
-    var index = user.desafiosId.indexOf({desafioId:id,status:'pending'} );
-    if (index > -1) {
-    user.desafiosId.splice(index, 1);
+    for (let i = 0; i < user.desafiosId.length; i++) {
+      if (user.desafiosId[i].desafioId==id){
+        user.desafiosId.splice(i, 1);
+      }
     }
+
     this.authService.updateDesafio(user).subscribe(response => {
       console.log(response);
       this.closeModal();
