@@ -8,7 +8,6 @@ import {Observable} from 'rxjs/Observable';
 import 'rxjs/add/observable/throw';
 import 'rxjs/add/operator/map';
 import 'rxjs/add/operator/catch';
-import { Geolocation } from '@ionic-native/geolocation';
 
 @IonicPage()
 @Component({
@@ -35,19 +34,9 @@ export class DesafioModalPage {
               public viewCtrl: ViewController,
               public desafioService: DesafioService,
               public authService: AuthService,
-              private geolocation: Geolocation,
             ) {}
 
-  location = false;
   
-  getLocation(){
-    this.geolocation.getCurrentPosition().then((resp) => {
-      console.log(resp.coords.latitude)
-      console.log(resp.coords.longitude)
-     }).catch((error) => {
-       console.log('Erro ao tentar encontrar a localização', error);
-     });
-  }
 
   cancelaDesafio(){
     let id = this.id;
@@ -93,7 +82,6 @@ export class DesafioModalPage {
   };
 
   ionViewDidLoad() {
-    this.getLocation();
     if (this.status == 'notyet'){
       this.desfioStatus ='Disponível';
     }else{

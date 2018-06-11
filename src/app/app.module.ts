@@ -20,7 +20,6 @@ import { AuthService } from '../providers/auth-service/auth-service';
 import { DesafioService } from './../pages/desafios/desafios.service';
 import { HttpModule } from '@angular/http';
 import { SocialSharing } from '@ionic-native/social-sharing';
-import { Geolocation } from '@ionic-native/geolocation';
 import { MundoPageModule } from './../pages/mundo/mundo.module';
 
 
@@ -56,7 +55,6 @@ import { MundoPageModule } from './../pages/mundo/mundo.module';
     AuthService,
     DesafioService,
     SocialSharing,
-    Geolocation,
   ]
 })
 export class AppModule {}
