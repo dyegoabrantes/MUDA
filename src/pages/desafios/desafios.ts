@@ -32,7 +32,6 @@ export class DesafiosPage {
       if(this.authService.currentUser.desafiosId.length>0){
         for(let i =0;i<this.desafios.length;i++){
           for(let e =0;e<this.authService.currentUser.desafiosId.length;e++){
-            console.log(this.authService.currentUser.desafiosId[e].desafioId,this.desafios[i].desafioId)
             if (this.authService.currentUser.desafiosId[e].desafioId==this.desafios[i].id){
               this.desafios[i].status=this.authService.currentUser.desafiosId[e].status;
             }
@@ -41,7 +40,7 @@ export class DesafiosPage {
       }
     }
   }
-
+  
   ionViewDidLoad() {
     this.carrega();
   };

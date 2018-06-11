@@ -20,8 +20,9 @@ import { AuthService } from '../providers/auth-service/auth-service';
 import { DesafioService } from './../pages/desafios/desafios.service';
 import { HttpModule } from '@angular/http';
 import { SocialSharing } from '@ionic-native/social-sharing';
-import { MundoPage } from './../pages/mundo/mundo';
+import { Geolocation } from '@ionic-native/geolocation';
 import { MundoPageModule } from './../pages/mundo/mundo.module';
+
 
 @NgModule({
   declarations: [
@@ -54,7 +55,8 @@ import { MundoPageModule } from './../pages/mundo/mundo.module';
     {provide: ErrorHandler, useClass: IonicErrorHandler},
     AuthService,
     DesafioService,
-    SocialSharing
+    SocialSharing,
+    Geolocation,
   ]
 })
 export class AppModule {}
