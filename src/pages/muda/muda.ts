@@ -11,7 +11,7 @@ import { Muda } from './muda.model';
   templateUrl: 'muda.html',
 })
 export class MudaPage {
-  muda: Muda = new Muda (50,0,'',0,{},[])
+  muda: Muda = new Muda ('',0,0,{},0,[])
   emblemas: Emblema[] =  [
     new Emblema (1 ,{},1,0,1)
   ]

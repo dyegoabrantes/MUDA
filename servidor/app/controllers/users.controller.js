@@ -52,7 +52,7 @@ module.exports.newUser = function(req,res) {
         let user = new  Usuario({
         nome: req.body.nome,
         email: req.body.email,
-        senha: bcrypt.hashSync(req.body.senha, 5),
+        senha: req.body.senha,
         habitos: req.body.habitos,
         desafiosId: req.body.desafiosId,
         emblemas: req.body.emblemas,
