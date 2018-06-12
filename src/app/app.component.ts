@@ -19,7 +19,7 @@ import { MundoPage } from './../pages/mundo/mundo';
 export class MyApp {
   @ViewChild(Nav) nav: Nav;
 
-  rootPage: any = RegistroHabitosPage;
+  rootPage: any = LoginPage;
 
   pages: Array<{title: string, component: any}>;
 

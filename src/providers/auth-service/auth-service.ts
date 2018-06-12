@@ -74,9 +74,8 @@ export class AuthService {
   public getMuda() {
     let url = '/api/mudas/'+this.currentUser._id;
     return this.http.get(url)
-      .map((response: Response) => {
-        console.log(response);
-        return (response);
-      }).catch((error: Response) => Observable.throw(error));
+    .map((response: Response) => {
+      return (response.json());
+    }).catch((error: Response) => Observable.throw(error));
   }
 }

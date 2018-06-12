@@ -22,7 +22,7 @@ module.exports.getMuda = function (req,res) {
     promise.then(
         (data) =>{ 
             if (data){
-                res.status(201).send(data);
+                res.status(201).json(data);
             }else{
                 res.status(400).send('Muda não encontrada');
             }

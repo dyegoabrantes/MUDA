@@ -22,25 +22,85 @@ export class MudaPage {
               public menu: MenuController,
               public auth: AuthService) {
   }
-  aux1: boolean
-  aux2: boolean
-  aux3: boolean 
-  aux4: boolean
-  aux5: boolean
+  mudaImg = 3;
+  // aux1: boolean
+  // aux2: boolean
+  // aux3: boolean 
+  // aux4: boolean
+  // aux5: boolean
   ionViewDidLoad() {    
     this.menu.swipeEnable(true);
 
     this.auth.getMuda()
     .subscribe(response => {
       if (response) {
-        console.log(response._body);
-        // this.muda.nome = res.nome;
-        // this.muda.indiceGeral = response._body.indiceGeral;
-        // this.muda.pontos = response._body.pontos;
-        // this.muda.arquivo = response._body.arquivo;
-        // this.muda.userId = response._body._id;
-        // this.muda.desafiosId = response._body.desafiosId;
-        // this.muda._id = response._body._id;
+        console.log(response);
+        this.muda.nome = response.nome;
+        this.muda.indiceGeral = response.indiceGeral;
+        this.muda.pontos = response.pontos;
+        this.muda.arquivo = response.arquivo;
+        this.muda.userId = response._id;
+        this.muda.desafiosId = response.desafiosId;
+        this.muda._id = response._id;
+
+        if (this.muda.desafiosId.length > 0){
+          if(this.muda.pontos < 25) {
+            this.mudaImg = 1;
+          }else{
+            if(this.muda.pontos >= 25 && this.muda.pontos < 50){
+              this.mudaImg = 2;
+            }else{
+              if(this.muda.pontos >= 50 && this.muda.pontos < 75){
+                this.mudaImg = 3;
+              }else{
+                if(this.muda.pontos >= 75 && this.muda.pontos < 95){
+                  this.mudaImg = 4;
+                }else{
+                  if(this.muda.pontos >= 75 && this.muda.pontos < 95){
+                    this.mudaImg = 4;
+                  };
+                }
+              }
+            }
+          }
+        }else{
+          this.mudaImg = 3;
+        };
+        // if(this.muda.pontos >= 50 && this.muda.pontos < 75){
+        //   this.aux1 = false
+        //   this.aux2 = false
+        //   this.aux3 = true 
+        //   this.aux4 = false
+        //   this.aux5 = false
+        // }
+        // if(this.muda.pontos < 25){
+        //   this.aux1 = true
+        //   this.aux2 = false
+        //   this.aux3 = false 
+        //   this.aux4 = false
+        //   this.aux5 = false
+        // }
+        // if(this.muda.pontos >= 25 && this.muda.pontos < 50){
+        //   this.aux1 = false
+        //   this.aux2 = false
+        //   this.aux3 = true 
+        //   this.aux4 = false
+        //   this.aux5 = false
+        // }
+        // if(this.muda.pontos >= 75 && this.muda.pontos < 95){
+        //   this.aux1 = false
+        //   this.aux2 = false
+        //   this.aux3 = false
+        //   this.aux4 = true
+        //   this.aux5 = false
+        // }
+        // if(this.muda.pontos >= 95){
+        //   this.aux1 = false
+        //   this.aux2 = false
+        //   this.aux3 = false 
+        //   this.aux4 = false
+        //   this.aux5 = true
+        // }
         console.log(this.muda);
       } else {
         console.log('erro');
@@ -49,50 +109,5 @@ export class MudaPage {
       error => {
         console.log(error);
       });
-
-
-    this.storage.get('nome-muda').then((val) => {
-      this.muda.nome = val
-    });
-    if(this.muda.pontos >= 50 && this.muda.pontos < 75){
-      this.aux1 = false
-      this.aux2 = false
-      this.aux3 = true 
-      this.aux4 = false
-      this.aux5 = false
-      this.muda.indiceGeral = 3;
-    }
-    if(this.muda.pontos < 25){
-      this.aux1 = true
-      this.aux2 = false
-      this.aux3 = false 
-      this.aux4 = false
-      this.aux5 = false
-      this.muda.indiceGeral = 1;
-    }
-    if(this.muda.pontos >= 25 && this.muda.pontos < 50){
-      this.aux1 = false
-      this.aux2 = false
-      this.aux3 = true 
-      this.aux4 = false
-      this.aux5 = false
-      this.muda.indiceGeral = 2;
-    }
-    if(this.muda.pontos >= 75 && this.muda.pontos < 95){
-      this.aux1 = false
-      this.aux2 = false
-      this.aux3 = false
-      this.aux4 = true
-      this.aux5 = false
-      this.muda.indiceGeral = 4;
-    }
-    if(this.muda.pontos >= 95){
-      this.aux1 = false
-      this.aux2 = false
-      this.aux3 = false 
-      this.aux4 = false
-      this.aux5 = true
-      this.muda.indiceGeral = 5;
-    }
   }
 }
