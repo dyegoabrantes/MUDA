@@ -8,11 +8,9 @@
 
 
 <ion-content>
+  <div *ngIf="location" #map id="map"></div>
   <ion-card>
-    <img *ngIf="!this.location" src="{{'./../../../assets/imgs/' + this.titulo + '.png'}}"/>
-    <div *ngIf="this.location">
-      
-    </div>
+    <img *ngIf="!location" src="{{'./../../../assets/imgs/' + this.titulo + '.png'}}"/>
     <ion-card-content>
       <ion-card-title>
         {{titulo}}
@@ -24,18 +22,18 @@
   </ion-card>
   <div>
     <div class="duracao" padding text-center>
-      <span *ngIf="this.status  == 'notyet'"><ion-icon name="alarm"></ion-icon>Deve ser realizado em {{duracao}} dia(s)</span>
-      <span *ngIf="this.status == 'pending'"><ion-icon name="alarm"></ion-icon>Deve ser realizado em {{duracao}} dia(s)</span>
-      <span *ngIf="this.status == 'done'"><ion-icon name="alarm"></ion-icon>Deve ser realizado em {{duracao}} dia(s)</span>
+      <span *ngIf="status  == 'notyet'"><ion-icon name="alarm"></ion-icon>Deve ser realizado em {{duracao}} dia(s)</span>
+      <span *ngIf="status == 'pending'"><ion-icon name="alarm"></ion-icon>Deve ser realizado em {{duracao}} dia(s)</span>
+      <span *ngIf="status == 'done'"><ion-icon name="alarm"></ion-icon>Deve ser realizado em {{duracao}} dia(s)</span>
     </div>
   </div>
   <div class="button-Row" padding  text-center>
-    <button *ngIf="this.status  == 'notyet'" ion-button round align small color="default" (click)="closeModal()">Voltar</button>
-    <button *ngIf="this.status  == 'notyet'" ion-button (click)="aceitarDesafio()" round small color="dark">Aceitar Desafio</button>
-    <button *ngIf="this.status  == 'pending'" ion-button round align small color="s-light" (click)="closeModal()">Voltar</button>
-    <button *ngIf="this.status  == 'pending'" ion-button round small color="danger" (click)="cancelaDesafio()">Cancelar desafio</button>
+    <button *ngIf="status  == 'notyet'" ion-button round align small color="default" (click)="closeModal()">Voltar</button>
+    <button *ngIf="status  == 'notyet'" ion-button (click)="aceitarDesafio()" round small color="dark">Aceitar Desafio</button>
+    <button *ngIf="status  == 'pending'" ion-button round align small color="s-light" (click)="closeModal()">Voltar</button>
+    <button *ngIf="status  == 'pending'" ion-button round small color="danger" (click)="cancelaDesafio()">Cancelar desafio</button>
   </div>
   <div class="button-Row" padding  text-center>
-    <button *ngIf="this.status  == 'pending'" ion-button full round large align small color="success" (click)="concluirDesafio()">Concluir</button>
+    <button *ngIf="status  == 'pending'" ion-button full round large align small color="success" (click)="concluirDesafio()">Concluir</button>
   </div>
 </ion-content>

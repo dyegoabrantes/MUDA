@@ -15,13 +15,21 @@
   <ion-list>
     <ion-item *ngFor="let desafio of desafios">
       <ion-thumbnail item-start>
-        <img src={{desafio.arquivoA}}>
+        <img src={{desafio.arquivoA}}>  
       </ion-thumbnail>
-      <p class="titulo">{{desafio.titulo}}</p>
-      <p class="categoria">{{desafio.categoria}}</p>
+      
+      <p class="desafioTitulo">{{desafio.titulo}}</p>
+      
       <p *ngIf="desafio.status=='notyet'" class="status">Desafio Disponível</p>
       <p *ngIf="desafio.status=='pending'" class="status">Desafio Pendente</p>
       <p *ngIf="desafio.status=='done'" class="status">Desafio Concluído</p>
+      
+      <ion-icon  class="categoria" text-center *ngIf="desafio.categoria=='Água'" name="water" color="secondary"></ion-icon> <p *ngIf="desafio.categoria=='Água'" color="secondary">Água</p>
+
+      <ion-icon class="categoria" text-center *ngIf="desafio.categoria=='Energia'" name="flash" color="danger">  </ion-icon> <p color="danger" *ngIf="desafio.categoria=='Energia'">Energia</p>
+
+      <ion-icon class="categoria" text-center *ngIf="desafio.categoria=='Residuos'" name="nuclear" color="teresa">  </ion-icon> <p color="teresa" *ngIf="desafio.categoria=='Residuos'">Resíduos</p>
+      
       <button (click)="openModal(desafio)" ion-button item-end>Ver Desafio</button>
     </ion-item>
   </ion-list>

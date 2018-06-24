@@ -29,6 +29,7 @@ export class LoginPage {
   public login(){
     this.showLoading()
     this.authService.login(this.registerCredentials).subscribe(permissao => {
+      console.log('deu1')
       this.navCtrl.setRoot(MudaPage);
     },
       error => {
@@ -62,7 +63,9 @@ export class LoginPage {
 
   ionViewDidLoad() {
     this.menu.swipeEnable(false);
-    
+    if(localStorage.getItem('token')){
+      this.navCtrl.setRoot(MudaPage);
+    }
   }
 
 }

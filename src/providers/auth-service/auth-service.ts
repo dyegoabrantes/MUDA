@@ -26,6 +26,8 @@ export class AuthService {
       .map((response: Response) => {
         this.token = response.json().token;
         this.currentUser= response.json().data;
+        localStorage.setItem('token', this.token);
+        // localStorage.setItem('currentUser', this.currentUser.toString());
         return (this.currentUser);
       }).catch((error: Response) => Observable.throw(error));
     }
@@ -57,6 +59,7 @@ export class AuthService {
   public logout() {
     this.currentUser = null;
     this.token= "";
+    localStorage.clear();
     return Observable.create(observer => {
       observer.next(true);
       observer.complete();
