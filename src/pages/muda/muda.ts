@@ -6,8 +6,8 @@ import { Storage } from '@ionic/storage';
 import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams, MenuController, Menu } from 'ionic-angular';
 import { Muda } from './muda.model';
-import { AuthService } from './../../providers/auth-service/auth-service';
-
+import { AuthService } from './../../providers/auth-service/auth-service'
+import { LoginPage } from '../login/login';
 
 
 @IonicPage()
@@ -179,5 +179,9 @@ export class MudaPage {
       }
     }
   }
+  }
+  logout(){
+    this.auth.logout();
+    this.navCtrl.setRoot(LoginPage);
   }
 }

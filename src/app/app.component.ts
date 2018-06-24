@@ -35,7 +35,7 @@ export class MyApp {
       { title: 'Desafios', component: DesafiosPage },
       { title: 'Almanaque', component: AlmanaquePage },
       { title: 'Mundo', component: MundoPage },
-      { title: 'Cadastra muda', component: CadastraMudaPage }
+      { title: 'Cadastra muda', component: CadastraMudaPage },
     ];
 
   }

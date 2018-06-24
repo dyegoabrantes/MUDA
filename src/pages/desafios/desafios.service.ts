@@ -39,11 +39,11 @@ export class DesafioService{
             "notyet",
             "./../../assets/imgs/bye bye standby!.png",
             "./../../assets/imgs/bye bye standby!.png",           
-            ),
+        ),
         new Desafio ( 
             4,
             "Só polui",
-            "Baterias são objetos muito úteis no nosso dia a dia, mas com o passar do tempo elas acabam se desgastando e precisam ser substituidas. O descarte deste tipo de material, se não for feito adequadamente, pode ocasionar uma perigosa contaminação do local onde foi descartado. Este desafio é especial, descarte uma bateria que não sirva mais no local indicado",
+            "Baterias são objetos muito úteis no nosso dia a dia, mas com o passar do tempo elas acabam se desgastando e precisam ser substituidas. O descarte deste tipo de material, se não for feito adequadamente, pode ocasionar uma perigosa contaminação do local onde foi descartado.",
             "Energia",
             25,
             5,

@@ -27,7 +27,6 @@ export class DesafiosPage {
 
   carrega() {
     this.desafios=this.desafioService.desafios;
-    console.log(this.desafios);
     if(this.authService.currentUser.desafiosId){
       if(this.authService.currentUser.desafiosId.length>0){
         for(let i =0;i<this.desafios.length;i++){
