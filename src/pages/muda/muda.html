@@ -13,49 +13,36 @@
 <ion-content padding>
   <div class="container-muda">
     <ion-img id="container-muda-img" 
-        [class.container-image-muda-1] = "mudaImg == 1"
-        [class.container-image-muda-2] = "mudaImg == 2"
-        [class.container-image-muda-3] = "mudaImg == 3" 
-        [class.container-image-muda-4] = "mudaImg == 4"
-        [class.container-image-muda-5] = "mudaImg == 5">
-    </ion-img>
-
-        <!-- <ion-img *ngIf="this.mudaImg === 1" width="80" height="80" src="./../../assets/imgs/muda ani 1.gif"></ion-img>
-      <ion-img *ngIf="this.mudaImg === 2" width="80" height="80" src="./../../assets/imgs/muda ani 2.gif"></ion-img>
-      <ion-img *ngIf="this.mudaImg === 3" width="80" height="80" src="./../../assets/imgs/muda ani 3.gif"></ion-img>
-      <ion-img *ngIf="this.mudaImg === 4" width="80" height="80" src="./../../assets/imgs/muda ani 4.gif"></ion-img>
-      <ion-img *ngIf="this.mudaImg === 5" width="80" height="80" src="./../../assets/imgs/muda ani 5.gif"></ion-img> -->
-      
-      
-      <!-- <img *ngIf="this.mudaImg === 1" src="./../../assets/imgs/muda ani 1.gif" alt="">
-      <img *ngIf="this.mudaImg === 2" src="./../../assets/imgs/muda ani 2.gif" alt="">
-      <img *ngIf="this.mudaImg === 3" src="./../../assets/imgs/muda ani 3.gif" alt="">
-      <img *ngIf="this.mudaImg === 4" src="./../../assets/imgs/muda ani 4.gif" alt="">
-      <img *ngIf="this.mudaImg === 5" src="./../../assets/imgs/muda ani 5.gif" alt=""> -->
-  </div>
+    [class.container-image-muda-1] = "aux1"
+    [class.container-image-muda-2] = "aux2"
+    [class.container-image-muda-3] = "aux3" 
+    [class.container-image-muda-4] = "aux4"
+     [class.container-image-muda-5] = "aux5"></ion-img>
+    </div>
+       
   <div class="container-muda-nome">
       <p>Nome muda</p>
       <h5>{{muda.nome}}</h5>
       <div class="container-muda-ele">
           <div>
               <p>{{muda.indiceGeral}}</p>
-              <p>Indice Geral</p>
+              <p>Estado</p>
           </div>
           <div>
               <p>{{muda.pontos}}</p>
-              <p>Experiencia</p>
+              <p>Pontos</p>
           </div>
-          <div>
-              <p>{{emblemas.length}}</p>
-              <p>Numero emblemas</p>
-          </div>
+          <div >
+                <p>{{ emtem  }}</p>
+                <p>Emblemas</p>
+            </div>
       </div>      
   </div>
-  <ion-list  class="container-emblemas" >
-        <ion-item class="emblemas" *ngFor="let emblema of emblemas"> 
-                <p class="a">level {{ emblema.nivel }}</p>
-                <ion-img class="container-emblema-img" ></ion-img>
-                
+  <ion-list class="container-emblemas" >
+        <ion-item class="emblemas" *ngFor="let emblema of emblemas" > 
+                <ion-img *ngIf = "emblema.categoria == ''" id="nada" class="container-emblema-img"  ></ion-img>
+                <ion-img *ngIf = "emblema.categoria == 'Energia'" id="energia"  class="container-emblema-img"  ></ion-img>
+                <ion-img *ngIf = "emblema.categoria == 'Água'" id="agua" class="container-emblema-img"  ></ion-img>
         </ion-item>
   </ion-list>
   <button (click)="logout()" ion-button>

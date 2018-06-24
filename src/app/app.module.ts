@@ -1,3 +1,4 @@
+import { EmblemaService } from './../pages/muda/emblema.service';
 import { BrowserModule } from '@angular/platform-browser';
 import { ErrorHandler, NgModule } from '@angular/core';
 import { IonicApp, IonicErrorHandler, IonicModule } from 'ionic-angular';
@@ -21,6 +22,7 @@ import { DesafioService } from './../pages/desafios/desafios.service';
 import { HttpModule } from '@angular/http';
 import { SocialSharing } from '@ionic-native/social-sharing';
 import { Geolocation } from '@ionic-native/geolocation';
+import { MundoPage } from './../pages/mundo/mundo';
 import { MundoPageModule } from './../pages/mundo/mundo.module';
 
 
@@ -56,7 +58,8 @@ import { MundoPageModule } from './../pages/mundo/mundo.module';
     AuthService,
     DesafioService,
     SocialSharing,
-    Geolocation,
+    EmblemaService
+    // Geolocation,
   ]
 })
 export class AppModule {}

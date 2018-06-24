@@ -8,7 +8,7 @@ import {Observable} from 'rxjs/Observable';
 import 'rxjs/add/observable/throw';
 import 'rxjs/add/operator/map';
 import 'rxjs/add/operator/catch';
-import { Geolocation } from '@ionic-native/geolocation';
+// import { Geolocation } from '@ionic-native/geolocation';
 
 declare var google;
 
@@ -33,10 +33,17 @@ export class DesafioModalPage {
   
   @ViewChild('map') mapElement: ElementRef;
   map: any;
-  start = 'chicago, il';
-  end = 'chicago, il';
   directionsService = new google.maps.DirectionsService;
   directionsDisplay = new google.maps.DirectionsRenderer;
+
+  constructor(public http: Http,
+              public navCtrl: NavController,
+              public navParams: NavParams,
+              public viewCtrl: ViewController,
+              public desafioService: DesafioService,
+              public authService: AuthService,
+              // private geolocation: Geolocation,
+            ) {}
 
   constructor(public http: Http,
     public navCtrl: NavController,
@@ -181,10 +188,21 @@ export class DesafioModalPage {
     let segundos = 0;
       
     segundos = segundos - 1;
-
     if (segundos == -1) {
      segundos = 0;
     }   
                 
     }    
+  ionViewDidLoad() {
+    // this.getLocation();
+    if (this.status == 'notyet'){
+      this.desfioStatus ='Disponível';
+    }else{
+      if (this.status == 'pending') {
+        this.desfioStatus ='Pendente';
+      }else{
+        this.desfioStatus ='Concluído';
+      }
+    }
+  }
 }

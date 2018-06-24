@@ -1,5 +1,7 @@
+import { AuthService } from './../../providers/auth-service/auth-service';
 import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams } from 'ionic-angular';
+
 
 /**
  * Generated class for the MundoPage page.
@@ -15,9 +17,9 @@ import { IonicPage, NavController, NavParams } from 'ionic-angular';
 })
 export class MundoPage {
 
-  constructor(public navCtrl: NavController, public navParams: NavParams) {
+  constructor(public navCtrl: NavController, public navParams: NavParams, public auth: AuthService) {
   }
-  pontos: number =10
+  pontos: number =50
   prox: boolean = false
   prox2: boolean = true
   none1:boolean 
@@ -27,6 +29,10 @@ export class MundoPage {
   // none3: boolean 
   ionViewDidLoad() {
     console.log('ionViewDidLoad MundoPage');
+    this.auth.getMudas()
+    .subscribe(response => {
+      this.pontos = response.media;
+    })
     if (this.pontos <= 30){
       this.prox = true
       this.prox2 = false

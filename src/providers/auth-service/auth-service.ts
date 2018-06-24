@@ -81,4 +81,22 @@ export class AuthService {
       return (response.json());
     }).catch((error: Response) => Observable.throw(error));
   }
+
+  public getMudas(){
+    let url = '/api/mudas';
+    return this.http.get(url)
+    .map((response: Response) =>{
+      return (response.json());
+    }).catch((error: Response) => Observable.throw(error));
+  }
+
+  public updateMuda(muda, pontos){
+    console.log(muda._id)
+    let url = `/api/muda/${muda._id}`;
+    return this.http.put(url, { pontos: pontos}, )
+      .map((response: Response) => {
+        console.log(response)
+        return ('deu bom');
+      }).catch((error: Response) => Observable.throw(error));
+  }
 }
