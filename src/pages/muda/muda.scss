@@ -68,8 +68,9 @@ page-muda {
     text-align: center;
 }
 .container-muda-ele{
-    width: 210px;
+    width: 130px;
     margin: auto;
+   
 }
 .container-muda-ele p {
     font-size: 8px;
@@ -83,11 +84,39 @@ page-muda {
     height: 80px;
     background-color: #fff;
     border-radius: 20px; 
-    background-image: url("../../assets/imgs/EmblemasMuda.png");
     background-size: 100%; 
     background-repeat: no-repeat;
     background-position-y: 15px;
 }
+#energia{
+    background-image: url("../../assets/imgs/Energia.png");
+}
+#agua{
+    background-image: url("../../assets/imgs/Água.png");
+}
+#nada{
+    display: none;
+}
+// .container-emblema-img-2{
+//     width: 80px;
+//     height: 80px;
+//     background-color: #fff;
+//     border-radius: 20px; 
+//     background-image: url("../../assets/imgs/Energia.png");
+//     background-size: 100%; 
+//     background-repeat: no-repeat;
+//     background-position-y: 15px;
+// }
+// .container-emblema-img-3{
+//     width: 80px;
+//     height: 80px;
+//     background-color: #fff;
+//     border-radius: 20px; 
+//     background-image: url("../../assets/imgs/Residuos.png");
+//     background-size: 100%; 
+//     background-repeat: no-repeat;
+//     background-position-y: 15px;
+// }
 .container-emblemas{
     position: absolute;
     top: 70%;
