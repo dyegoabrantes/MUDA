@@ -22,7 +22,7 @@ export class MudaPage {
   emblemas: Emblema[] =  [
     new Emblema (1 ,'',1,0,'')
   ]
-  listaDesafios
+  listaDesafios = [];
   desafios
   contEmblema: number = 0
   desafiosTempo = []
@@ -45,6 +45,7 @@ export class MudaPage {
  
   ionViewDidLoad() {    
     this.menu.swipeEnable(true);
+    console.log(this.auth.getUserInfo().desafiosId)
     this.listaDesafios = this.auth.getUserInfo().desafiosId
     if(this.listaDesafios){
       for(let i=0; i< this.listaDesafios.length; i++){
@@ -105,7 +106,9 @@ export class MudaPage {
           this.aux5 = true
           this.muda.indiceGeral = 5;
         }
-        this.calcularPontos();
+        if(this.auth.currentUser.desafiosId){
+          this.calcularPontos();
+        }
         
       } else {
         console.log('erro');

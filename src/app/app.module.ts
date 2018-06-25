@@ -58,8 +58,8 @@ import { MundoPageModule } from './../pages/mundo/mundo.module';
     AuthService,
     DesafioService,
     SocialSharing,
-    EmblemaService
-    // Geolocation,
+    EmblemaService,
+    Geolocation,
   ]
 })
 export class AppModule {}
