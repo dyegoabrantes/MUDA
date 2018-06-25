@@ -8,6 +8,9 @@
 
 
 <ion-content>
+  <ion-fab top right edge>
+    <button color='teresa' (click)="closeModal()" ion-fab mini><ion-icon name="close"></ion-icon></button>
+  </ion-fab>
   <div *ngIf="location" #map id="map"></div>
   <ion-card>
     <img *ngIf="!location" src="{{'./../../../assets/imgs/' + this.titulo + '.png'}}"/>
@@ -24,7 +27,7 @@
     <div class="duracao" padding text-center>
       <span *ngIf="status  == 'notyet'"><ion-icon name="alarm"></ion-icon>Deve ser realizado em {{duracao}} dia(s)</span>
       <span *ngIf="status == 'pending'"><ion-icon name="alarm"></ion-icon>Deve ser realizado em {{duracao}} dia(s)</span>
-      <span *ngIf="status == 'done'"><ion-icon name="alarm"></ion-icon>Deve ser realizado em {{duracao}} dia(s)</span>
+      <span *ngIf="status == 'done'">Desafio concluído! Continue praticando o que você aprendeu!</span>
     </div>
   </div>
   <div class="button-Row" padding  text-center>
